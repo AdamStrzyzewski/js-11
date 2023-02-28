@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      "use strict";
+
+      const x = 10;
+      const y = 5;
+      const sX = "10";
+
+      console.log(x + y);
+      console.log(y + x);
+
+      console.log(x - y);
+      console.log(y - x);
+
+      console.log(x * y);
+
+      console.log(x / y);
+
+      // reszta z dzielenia
+      // 10 / 5 = 2 i r. 0
+      console.log(x % y);
+
+      console.log("modulo", 15 / 4, 15 % 4);
+
+      let value = 10;
+      value += 15; // 25
+      // value = value + 15
+
+      value *= 10; // 250
+      value /= 10; // 25
+      value -= 5; // 20
+
+      // + 1
+      value++;
+      ++value;
+
+      // -1
+      value--;
+      --value;
+
+      console.log("value", value);
+
+      console.log("-------");
+
+      const a = 5;
+      const b = 10;
+      const c = 5;
+
+      console.log("a > b:", a > b); // false
+      console.log("a < b:", a < b); // true
+      console.log("a < c:", a < c); // false
+      console.log("a <= c:", a <= c); // true
+      console.log("a >= c:", a >= c); // true
+      console.log("a === b:", a === b); // false
+      console.log("a === c:", a === c); // true
+      console.log("a !== b:", a !== b); // true
+      console.log("a !== c:", a !== c); // false
+
+      console.log("---");
+      console.log("5" === 5); // false
+      // tego nie używamy
+      // console.log("5" == 5); // true
+      // console.log("5" != 5); // false
+      console.log(25 == 5); // false
+
+      console.log(10 % 5 === 0); // true
+    </script>
+  </body>
+</html>

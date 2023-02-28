@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      const x = 5;
+      const y = "5";
+      console.log(typeof (x + y), x + y);
+      console.log(typeof (y + x), y + x);
+
+      const a = "557";
+      console.log(Number(557));
+
+      console.log(Number.parseInt(a));
+      console.log(Number.parseFloat(a));
+
+      // liczby całkowite
+      console.log(Number.parseInt("10.5"));
+      // liczby zmiennoprzecinkowe
+      console.log(Number.parseFloat("10.5"));
+      // console.log(Number.parseFloat("10,5")); // 10
+
+      console.log(Number.parseInt("20px30"));
+
+      console.log(Number.parseFloat("Adam")); // NaN
+      // Not a Number
+      console.log(Number.isNaN(Number.parseFloat("Adam")));
+      console.log(Number.isNaN(Number.parseFloat("150fijdsaiofjsa")));
+
+      // console.log(Number.parseFloat("30", 10));
+      console.log("-----");
+      console.log(0.1 + 0.2 === 0.3);
+      console.log(0.1 + 0.2);
+
+      console.log((0.1 * 10 + 0.2 * 10) / 10); // number
+      console.log((0.1 + 0.2).toFixed(1)); // 0.30 string
+
+      console.log("-------");
+
+      console.log(1.7, Math.floor(1.7));
+      console.log(1.2, Math.ceil(1.2));
+      console.log(1.2, Math.round(1.2));
+      console.log(1.5, Math.round(1.5));
+      console.log(1.6, Math.round(1.6));
+      console.log(2.5, Math.round(2.5));
+      console.log(2.59999, Math.round(2.59999));
+      console.log(-2.5, Math.round(-2.5));
+      console.log(-2.599999, Math.round(-2.599999));
+
+      console.log(Math.max(20, 10, 50, 10));
+      console.log(Math.min(20, 10, 50, 10));
+
+      console.log("pow", Math.pow(2, 4)); // 2^4
+
+      console.log(Math.random()); // [0 do 1)
+
+      console.log(Math.round(Math.random() * (10 - 1) + 1));
+    </script>
+  </body>
+</html>

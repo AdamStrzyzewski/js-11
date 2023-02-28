@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      // truthy -> wszystko inne
+      // falsy -> 0, NaN, null, undefined, "", false
+
+      console.log(5 && 7); // truthy
+      const age = 11;
+      // AND -> &&
+      console.log(age > 10 && age < 30 && age === 11); // true
+      // age > 10 => true
+      // age < 30 => true
+      // age === 11 => true
+      console.log(age > 10 && age < 30 && age === 15); // false
+      // true, true, false -> false
+
+      // OR -> ||
+      console.log(age > 10 || age > 45);
+      // age > 10 => true
+      // age > 45 => false
+      // true || false -> true
+
+      const name = "Ada";
+      console.log((age === 11 && name === "Adam") || age > 45);
+      // age === 11 -> true
+      // name === "Ada" -> false
+      // age > 45 -> false
+      // (true && false) || false
+
+      console.log("______");
+      // ! - negacja
+      console.log(!true);
+      console.log(!false);
+      console.log(!"Mango"); // negacja truthy na false
+      console.log(!""); // negacja falsy na true
+      // dla ciekawych
+      console.log(!!""); // konwersje na boolean
+    </script>
+  </body>
+</html>

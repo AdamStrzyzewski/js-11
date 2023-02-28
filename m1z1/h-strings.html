@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      // J - 0
+      // a - 1
+      // v - 2
+      // ...
+      const str = "JavaScript";
+      console.log(str.length);
+      console.log(str[0]);
+      console.log(str[10]);
+      console.log(str[-1]);
+
+      const b = "Mango" + "is" + "happy";
+      console.log(b);
+
+      // grawis
+      // backtick
+      const c = `Mango${b.toUpperCase()}${"TEST".toLowerCase()}`;
+      console.log(c);
+
+      console.log("test" === "TeSt"); // false
+      const msg = "Welcome to Bahamas!";
+      console.log(msg.indexOf("to")); // 8
+      console.log(msg.indexOf("t")); // 8
+      console.log(msg.indexOf("a")); // 12
+      console.log(msg.indexOf("ta")); // -1
+      console.log(msg.indexOf("Welcome")); // 0
+      console.log(msg.indexOf("hello")); // -1
+      console.log("-----");
+      console.log(msg.includes("to")); // true
+      console.log(msg.includes("Bah")); // true
+      console.log(msg.includes("xyz")); // false
+      console.log("-----");
+      console.log(msg.endsWith("!"));
+      console.log(msg.endsWith("Bahamas"));
+      console.log(msg.endsWith("Bahamas!"));
+
+      console.log("-----");
+      const str2 = "Adam, Adam i Bartek";
+      console.log(str2.replace("Adam", "Maciej"));
+      console.log(str2.replaceAll("Adam", "Maciej"));
+      const str3 = str2.replaceAll("Adam", "Maciej");
+      console.log(str2);
+      console.log("-----");
+      const productName = "0123456789";
+      console.log(productName.slice(0, 4));
+      console.log(productName.slice(3, 5));
+      console.log(productName.slice(3));
+      console.log(productName.slice(-5));
+      console.log(productName.slice(5, 2)); // empty string
+
+      console.log(productName);
+    </script>
+  </body>
+</html>
