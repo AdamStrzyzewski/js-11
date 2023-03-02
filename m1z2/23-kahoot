@@ -1,0 +1,13 @@
+// kahoot
+
+console.log(Number("25.5px")) // NaN
+console.log(Number("25")) // 25
+console.log(Number("25.5")) // 25.5
+console.log(Number.parseInt("25.5px")) // 25
+console.log(Number.parseFloat("25.54523px")) // 25.54523
+console.log(Math.round(Number.parseFloat("25.54523px"))) // 26
+console.log(Math.round(Number.parseFloat("25.54523px") * 10) / 10) // 25.5
+
+console.log(!!"false") // "false" => truthy => true
+console.log(!!"fads") // "false" => truthy => true
+console.log(!!"") // "" => falsey => false
