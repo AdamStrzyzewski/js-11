@@ -1,0 +1,20 @@
+// loop continue
+
+const counter = 10;
+
+for (let i = 0; i < counter; i++) {
+  if (i % 2 === 0) {
+    continue;
+  }
+  console.log(`I am odd - ${i}`)
+}
+
+console.log("----")
+
+for (let i = 0; i < counter; i++) {
+  if (i % 2 !== 0) {
+    console.log(`I am odd - ${i}`)
+  } else {
+    console.log(`I am even - ${i}`)
+  }
+}

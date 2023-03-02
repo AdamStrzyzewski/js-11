@@ -1,0 +1,38 @@
+// switch
+
+let cost;
+const subscription = "trial";
+
+switch(subscription){
+    // subscription === "free" ||
+    // subscription === "trial"
+    case "free":
+    case "trial":
+        cost = 0;
+    break;
+    // subscription === "premium"
+    case "premium":
+        cost = 500;
+        console.log("premium")
+    break;
+    // subscription === "pro"
+    case "pro":
+        cost = 100;
+    break;
+    default:
+        cost = NaN;
+}
+
+// if (subscription === "free" || subscription === "trial") {
+//   cost = 0;
+// } else if (subscription === 'premium') {
+//   cost = 500;
+//   console.log("premium")
+// } else if (subscription === 'pro') {
+//   cost = 100;
+// } 
+// else {
+//   cost = NaN;    
+// }
+
+console.log(`your cost is ${cost}`)

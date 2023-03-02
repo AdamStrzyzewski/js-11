@@ -1,0 +1,9 @@
+// scope-2
+
+if(true) {
+    const value = 5;
+    // variable is accessible
+    console.log(`block value of variable ${value}`) 
+}
+
+console.log(`block value of variable ${value}`) // error

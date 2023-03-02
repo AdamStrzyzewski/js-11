@@ -1,0 +1,8 @@
+// loop do while 2
+let password = "";
+
+do {
+  password = prompt("Wprowadź hasło dłuższe niż 4 znaki", "");
+} while (password.length < 5);
+
+console.log("Hasło zostało wprowadzone: ", password);

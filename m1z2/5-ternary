@@ -1,0 +1,24 @@
+// ternary 
+
+
+const age = 20;
+
+// old way
+// if (age >= 18) {
+//   type = "adult";
+// } else {
+//   type = "minor";
+// }
+
+
+const country = "Pl"
+// ternary
+const isAdult =
+  (country === "USA" && age >= 21) || (country !== "USA" && age >= 18);
+  
+const type = isAdult ? "adult" : "minor";
+const canDrink = isAdult ? true : false;
+// if condition is truthy -> "adult"
+// if condition is falsy -> "minor"
+
+console.log(type)

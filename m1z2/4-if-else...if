@@ -1,0 +1,17 @@
+// if-else...if
+
+let cost;
+
+const subscription = "";
+
+if (subscription === "free") {
+  cost = 0;
+} else if (subscription === 'premium') {
+  cost = 500;
+} else if (subscription === 'pro') {
+  cost = 100;
+} else {
+  cost = NaN;    
+}
+
+console.log(`your cost is ${cost}`)

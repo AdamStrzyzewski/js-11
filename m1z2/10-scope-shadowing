@@ -1,0 +1,20 @@
+// scope shadowing
+
+const a = 10;
+
+
+if (true) {
+  // shadow bad practice
+  const a = 15;
+  console.log(`1. a = ${a}`);
+  if (true) {
+    const a = 20;
+    console.log(`3. a = ${a}`);
+  }
+  if (true) {
+    console.log(`4. a = ${a}`);
+  }
+}
+
+// const a = 15; // error
+console.log(`2. a = ${a}`);

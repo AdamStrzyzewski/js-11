@@ -1,0 +1,11 @@
+// if-else
+
+const userAge = 17;
+
+// if user is an adult, log true
+if (userAge >= 18) {
+  console.log(true);
+} else {
+  console.log(false);
+}
+// else log false

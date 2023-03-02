@@ -1,0 +1,21 @@
+// loop while
+let i = 0;
+
+while (i < 5) {
+  console.log(`hej iterator teraz to ${i}`);
+  i++;
+}
+
+console.log(i);
+
+// 1 iteration -> 0 < 5 === true -> do iteration
+// i++ -> i === 1
+// 2 iteration -> 1 < 5 === true -> do iteration
+// i++ -> i === 2
+// 3 iteration -> 2 < 5 === true -> do iteration
+// i++ -> i === 3
+// 4 iteration -> 3 < 5 === true -> do iteration
+// i++ -> i === 4
+// 5 iteration -> 4 < 5 === true -> do iteration
+// i++ -> i === 5
+// 6 iteration -> 5 < 5 === false -> stop loop

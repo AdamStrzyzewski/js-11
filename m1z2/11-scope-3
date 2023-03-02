@@ -1,0 +1,18 @@
+// scope-3
+
+const a = 10;
+
+if (true) {
+  const c = 30;
+  if (true) {
+    const b = 20;
+    console.log(`3. a = ${a}`);
+    console.log(`6. c = ${c}`);
+  }
+  if (true) {
+    console.log(`4. a = ${a}`);
+    console.log(`5. b = ${b}`); // error
+  }
+}
+
+console.log(`2. a = ${a}`);

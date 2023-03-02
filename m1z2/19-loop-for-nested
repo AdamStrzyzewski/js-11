@@ -1,0 +1,14 @@
+// loop for nested
+
+for (let i = 0; i <= 5; i++) {
+  console.log(`i: ${i}`)
+  //   i,j,k
+  for (let j = 0; j <= 3; j++) {
+    console.log(`i: ${i}, j: ${j}`)
+  }
+
+  // i, ii, iii
+  for (let ii = 0; ii <= 3; ii++) {
+    console.log(`i: ${i}, ii: ${ii}`)
+  }
+}

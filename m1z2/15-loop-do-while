@@ -1,0 +1,14 @@
+// loop do while
+
+let counter = 15;
+
+do {
+    console.log("do...while")
+} while (counter < 15)
+// does the iteration once! always
+// before 2nd iteration, checks counter < 15 === false -> no iteration
+
+
+while (counter < 15){
+    console.log("while")
+} 
