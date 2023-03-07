@@ -1,0 +1,30 @@
+// reference
+
+let a = 5;
+
+// let b = 5
+let b = a;
+// b += 1
+// b = 5 + 1
+
+// console.log(`a: ${a}`)
+// console.log(`b: ${b}`)
+
+a = 10;
+
+// console.log("----")
+// console.log(`a: ${a}`)
+// console.log(`b: ${b}`)
+
+const arr1 = [1,2,3];
+const arr2 = arr1;
+
+console.log("arr1")
+console.log(arr1)
+console.log('arr2')
+console.log(arr2)
+arr2.push('nowy')
+console.log('arr1')
+console.log(arr1)
+console.log('arr2')
+console.log(arr2)

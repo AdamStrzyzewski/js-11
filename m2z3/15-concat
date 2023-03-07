@@ -1,0 +1,15 @@
+// concat
+
+const oldArr = [1,2,3]
+const newArr = [4,5,6]
+const newArr2 = [7,8,9]
+
+const concatted = oldArr.concat(newArr2, newArr)
+
+console.log(concatted)
+
+oldArr.push("test")
+
+console.log(oldArr)
+console.log(concatted)
+

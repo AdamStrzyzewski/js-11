@@ -1,0 +1,11 @@
+// splice removing
+
+const clients = ["Mango", "Ajax", "Poly", "Kiwi", "Adam", "Filip"];
+
+// indexes: 0,1,2,3,4,5
+// length: 6
+
+const removed = clients.splice(0, 2);
+
+console.log('spliced', clients)
+console.log('removedElements', removed)

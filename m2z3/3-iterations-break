@@ -1,0 +1,18 @@
+// iterations-break
+
+
+const clients = ["Mango", "Poly", "Ajax"]
+
+const clientNameToFind = "Poly";
+
+let message = "Client not found"
+
+for (const client of clients) {
+  if (client === clientNameToFind) {
+    message = "Client found";
+    break;
+  }
+  console.log("iteration")
+}
+
+console.log(message)

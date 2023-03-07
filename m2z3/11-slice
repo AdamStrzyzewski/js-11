@@ -1,0 +1,20 @@
+// slice
+
+const clients = ["Mango", "Ajax", "Poly", "Kiwi"];
+
+// <1, 3)
+// shallow copy
+const copy = clients.slice(1, 3) // Ajax, Poly 
+console.log(copy)
+
+copy.push("Adam")
+
+console.log("copy")
+console.log(copy)
+
+console.log("clients")
+console.log(clients)
+
+console.log(clients.slice()) // full array
+console.log(clients.slice(-2)) // last 2 elements
+console.log(clients.slice(1)) // everything from index 1 to the end <1, arr.length)

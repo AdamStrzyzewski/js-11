@@ -1,0 +1,8 @@
+// includes
+const clients = ["Mango", "Ajax", "Poly", "Kiwi", "Ajax"];
+
+console.log(clients.includes("Poly") && clients.includes("Ajax"))
+console.log(clients.includes("Kiwi"))
+console.log(clients.includes("Adam") && clients.includes("Ajax"))
+
+// ===

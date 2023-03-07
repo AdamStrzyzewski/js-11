@@ -1,0 +1,6 @@
+// indexOf
+
+const clients = ["Mango", "Ajax", "Poly", "Kiwi", "Ajax"];
+
+console.log(clients.indexOf("Ajax"))
+console.log(clients.indexOf("Kamil"))

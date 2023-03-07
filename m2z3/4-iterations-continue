@@ -1,0 +1,13 @@
+// iterations-continue
+
+const numbers = [12, 423, 52, 325, 235, 6, 3, 36, 6, 3, 6, 78, 3];
+
+const threshold = 15;
+
+
+for (let i = 0; i < numbers.length; i += 1) {
+  if (numbers[i] < threshold) {
+    continue;
+  }
+  console.log(`${numbers[i]} > ${threshold}`)
+}

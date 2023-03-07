@@ -1,0 +1,32 @@
+// array init
+// const clients = new Array()
+const clients = ["Mango", "Poly", "Ajax", 10, true];
+console.log(clients.length);
+console.log(clients[0]);
+console.log(clients[1]);
+console.log(clients[2]);
+console.log(clients[3]);
+console.log(clients[4]);
+console.log(clients[5]);
+console.log(clients[-1]);
+
+clients[1] = "Jestem tu nowy"
+clients[5] = "jestem tu nowy na 5 indexie"
+console.log(clients[1]);
+console.log(clients[5]);
+
+console.log(clients);
+
+const lastIndex = clients.length - 1;
+console.log(`jestem ostatni i mam wartość '${clients[lastIndex]}'`)
+
+
+
+// bad practice
+// clients[-1] = 'test'
+// console.log(clients[-1])
+
+// bad practice
+// clients['test'] = 1;
+// console.log(clients)
+// console.log(clients['test'])

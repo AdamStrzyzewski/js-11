@@ -1,0 +1,11 @@
+// splice replacing
+
+const clients = ["Mango", "Ajax", "Poly", "Kiwi", "Adam", "Filip"];
+
+// indexes: 0,1,2,3,4,5
+// length: 6
+
+clients.splice(2, 2, "Jakub", "Jarek", "Kuba")
+// +3 -2 elementy 
+
+console.log(clients)

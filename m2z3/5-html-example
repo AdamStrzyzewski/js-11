@@ -1,0 +1,13 @@
+// html example
+
+const vat = 't0.23'; // comes from input
+const netPrice = 1000 // comes from input
+const qty = 5 // comes from input
+
+const floatVat = Number.parseFloat(vat)
+if (Number.isNaN(floatVat)) {
+  console.log("error")
+} else {
+  const gross = (qty * netPrice) * (1 + floatVat);
+  console.log(gross);
+}

@@ -1,0 +1,13 @@
+// logic operator
+
+console.log("5" && "10") // "10"
+console.log("5" && 0) // 0
+console.log("5" && false && 50) // false
+console.log(4 && 1 && "dwadzieścia") // "dwadzieścia"
+
+console.log(true ? 50 : 30);
+
+
+console.log(10 || 15) // 10
+console.log(false || 60)
+console.log(false || 1 || "5")

@@ -1,0 +1,19 @@
+// push i pop
+const arr = [1, 2, 3, 4, 5];
+
+arr.push(6, 7, 8)
+console.log(arr)
+
+const x = arr.pop()
+
+console.log(`x-${x}`)
+
+console.log(arr)
+
+// pop ale od początku
+arr.shift()
+console.log(arr)
+
+// push ale od początku
+arr.unshift("jestem z przodu")
+console.log(arr)

@@ -1,0 +1,24 @@
+// split join
+const str = "Mango";
+
+console.log(str)
+
+const strArr = str.split("")
+console.log(strArr)
+console.log(str)
+
+const msg = "Hello World !"
+console.log(msg)
+const msgArr = msg.split(" ")
+console.log(msgArr)
+console.log(msgArr.join("----"))
+console.log(msgArr.join("-"))
+console.log(msgArr.join(""))
+console.log(msgArr.join(" "))
+console.log(msgArr.join())
+
+const arr = ['test', 'test2', 'test3', 50, null, true, undefined]
+console.log(arr.join("-"))
+
+const n = 34523592352;
+console.log(`${n}`.split(""))

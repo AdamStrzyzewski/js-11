@@ -1,0 +1,26 @@
+// iterations
+
+const clients = [
+  "Adam",
+  "Maciej",
+  "Iwona",
+  "Jarek",
+  "Bartosz"
+];
+
+// for
+// for (let i = 0; i < clients.length; i++){
+//     console.log(clients[i])
+// }
+
+// console.log("--------")
+
+// for...of
+for (const client of clients) {
+  console.log(client)
+}
+
+// const string = "javascript"
+// for (const char of string) {
+//   console.log(char)
+// }
