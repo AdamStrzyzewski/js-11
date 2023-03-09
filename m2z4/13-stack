@@ -1,0 +1,22 @@
+// stack 
+
+function foo() {
+  console.log(1); // 2
+  bar()
+  console.log(2) // 4
+}
+
+function bar() {
+  console.log(3) // 3
+}
+
+
+console.log(4) // 1
+foo()
+console.log(5) // 5
+
+
+
+
+
+

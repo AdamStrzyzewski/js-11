@@ -1,0 +1,8 @@
+// array comparison naive
+
+function compare(a1, a2) {
+  return a1.join("") === a2.join("")
+}
+
+
+console.log(compare([1, 2, 3], ['1', '2', '3'])) // true

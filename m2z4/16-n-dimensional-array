@@ -1,0 +1,25 @@
+// n dimensional array
+const arr = [
+  [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ],
+  [
+    [10, 11],
+    [13, 14, 15],
+    [16, 17, 18]
+  ]
+]
+
+// console.log(arr[0][1][0])
+for (let i = 0; i < arr.length; i++) {
+  //   console.log(arr[i])
+  for (let ii = 0; ii < arr[i].length; ii++) {
+    // console.log(arr[i][ii])
+    for (let iii = 0; iii < arr[i][ii].length; iii++) {
+      console.log(arr[i][ii][iii])
+    }
+  }
+
+}

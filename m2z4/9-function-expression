@@ -1,0 +1,9 @@
+// function expression
+
+// function multiply(x, y, z) {
+//   return x * y * z
+// } // conflict
+
+const multiply = function(x, y, z) {
+  return x * y * z
+}

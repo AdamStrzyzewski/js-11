@@ -1,0 +1,17 @@
+// function early return
+let balance = 1000
+
+function withdraw(amount) {
+  if (amount === 0) return "amount must be greater than 0"
+  if (amount < 0) return "amount must be non negative"
+  if (amount > balance) return "Not enough money in your account"
+
+  balance -= amount;
+  return `Money has been withdrawn your balance is ${balance}`
+  // return
+}
+
+console.log(withdraw(500));
+console.log(withdraw(-10));
+console.log(withdraw(200));
+console.log(withdraw(400));

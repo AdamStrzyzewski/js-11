@@ -1,0 +1,25 @@
+// array comparison
+
+const arr1 = [1, 2, 3]
+const arr2 = [1, 2, 3]
+const arr3 = [1, 2, 4]
+const arr4 = [1, 2]
+const arr5 = [3, 2, 1]
+
+function compareArrays(a1, a2) {
+  if (a1.length !== a2.length) {
+    return false
+  }
+  for (let i = 0; i < a1.length; i++) {
+    if (a1[i] !== a2[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+
+console.log(compareArrays(arr1, arr2))
+console.log(compareArrays(arr1, arr3))
+console.log(compareArrays(arr1, arr4))
+console.log(compareArrays(arr1, arr5))

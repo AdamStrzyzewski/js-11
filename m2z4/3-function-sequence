@@ -1,0 +1,18 @@
+// function sequence
+
+function whatIsTheWeather() {
+  if (Math.random() > 0.5) {
+    console.log("It's raining")
+    return
+  }
+  console.log("It's sunny")
+}
+
+console.log("1")
+whatIsTheWeather()
+//  if (Math.random() > 0.5) {
+//     console.log("It's raining")
+//     return
+//   }
+//  console.log("It's sunny")
+console.log("2")

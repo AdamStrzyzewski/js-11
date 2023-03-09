@@ -1,0 +1,28 @@
+// function returns
+
+// two parameters a and b
+function multiply(a, b, c) {
+  return `${a} * ${b} * ${c} = ${a * b * c}`
+
+  console.log("mnie nie wyświetli")
+}
+
+
+const x = 15;
+const y = 25;
+const r1 = multiply(x, y, 10)
+const r2 = multiply(5, y + 3, 10)
+const r3 = multiply(y, 10, 20)
+
+console.log(multiply(21, 10, 10))
+console.log(r1)
+console.log(r2)
+console.log(r3)
+
+
+function returnEmpty() {
+  return
+  console.log("ja też sie nie pojawię")
+}
+
+console.log(returnEmpty())

@@ -1,0 +1,10 @@
+// function expression
+
+// console.log(multiply(1, 2, 3)) 
+// "ReferenceError: Cannot access 'multiply' before initialization"
+
+const multiply = function(x, y, z) {
+  return x * y * z
+}
+
+console.log(multiply(1, 2, 3)) // 6

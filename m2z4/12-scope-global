@@ -1,0 +1,14 @@
+// scope global
+
+const globalValue = 10;
+
+console.log(globalValue);
+
+function foo() {
+  console.log(globalValue)
+  if (true) {
+    console.log(globalValue)
+  }
+}
+
+foo()

@@ -1,0 +1,16 @@
+// function arguments 2
+
+function multiply() {
+  let total = 1
+  
+  console.log(arguments);
+  console.log(Array.from(arguments));
+  console.log([...arguments]) // spread
+  
+  for (const argument of arguments) {
+    total *= argument
+  }
+  return total
+}
+
+console.log(multiply(1, 2, 3, 4))

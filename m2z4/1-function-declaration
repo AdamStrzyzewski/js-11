@@ -1,0 +1,24 @@
+// function declaration
+
+// two parameters a and b
+function multiply(a, b) {
+  console.log(`${a} * ${b} = ${a * b}`)
+}
+
+
+const x = 15;
+const y = 25;
+multiply(x, y)
+multiply(5, y + 3)
+multiply(y, 10)
+
+
+// reference stands
+function addToArray(arr, toAdd){
+    arr.push(toAdd)
+}
+
+const array = [1,2,3]
+console.log(array)
+addToArray(array, 4)
+console.log(array)
