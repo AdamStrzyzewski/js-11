@@ -1,0 +1,29 @@
+// iterations for...in
+
+// const book = {
+//   title: "The Last Kingdom",
+//   author: "Bernard Cornwell",
+//   genres: ["historical prose", "adventure"],
+//   rating: 8.38,
+// };
+
+// for (const key in book) {
+//   console.log('key:', key)
+//   console.log('value:', book[key])
+// }
+
+
+const animal = {
+  legs: 4,
+}
+
+const dog = Object.create(animal)
+dog.name = "Mango"
+animal.legs = 5;
+console.log(dog)
+console.log(dog.legs)
+
+for (const propKey in dog) {
+  console.log(`propKey: ${propKey},
+    is it in our object? ${dog.hasOwnProperty(propKey)},`)
+}

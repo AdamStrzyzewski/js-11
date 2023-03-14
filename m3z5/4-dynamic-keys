@@ -1,0 +1,17 @@
+// dynamic keys
+
+const propName = "name";
+const user = {
+  age: 25,
+  firstName: "Henry",
+  lastName: "Otto",
+  [propName]: "Henry"
+}
+
+// user[propName] = "Henry"
+
+// when to use the second syntax
+// const propFullName = 'fullName'
+// user[propFullName] = `${user.firstName} ${user.lastName}`
+
+console.log(user)

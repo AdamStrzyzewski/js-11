@@ -1,0 +1,31 @@
+// object
+
+const book = {
+    title: "The Last Kingdom",
+    // _, $
+    '1423feGFSDG#@$@#{{}': 15,
+    // 1: 15,
+    '1': "test",
+    genres: ['fantasy', 'sci-fi'],
+    author: {
+        firstName: 'Bernard',
+        lastName: 'Cornwell'
+    }
+};
+
+console.log(book);
+
+console.log(book.title)
+console.log(book.genres)
+// console.log(boo.title) // error
+console.log(book.genres[0])
+console.log(book.author.firstName)
+console.log(book.author.nationality) // undefind
+// console.log(book.autor.nationality) // error
+
+console.log(book['1'])
+
+const key = 'title'
+console.log(book[key])
+console.log(book.title)
+// .title === ['title']

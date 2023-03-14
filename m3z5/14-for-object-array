@@ -1,0 +1,131 @@
+// for object array
+const users = [{
+    id: 12,
+    username: 'A',
+    rating: 1.9
+  },
+  {
+    id: 62,
+    username: 'B',
+    rating: 9.5
+  },
+  {
+    id: 61,
+    username: 'B',
+    rating: 2.5
+  },
+  {
+    id: 65,
+    username: 'B',
+    rating: 5.5
+  },
+  {
+    id: 654,
+    username: 'C',
+    rating: 8.5
+  },
+  {
+    id: 632,
+    username: 'C',
+    rating: 3.1
+  },
+  {
+    id: 432,
+    username: 'C',
+    rating: 1.3
+  },
+  {
+    id: 5523,
+    username: 'D',
+    rating: 6.6
+  },
+  {
+    id: 35,
+    username: 'E',
+    rating: 2.1
+  },
+  {
+    id: 334523,
+    username: 'E',
+    rating: 3.7
+  },
+  {
+    id: 35,
+    username: 'E',
+    rating: 6.4
+  },
+  {
+    id: 41,
+    username: 'F',
+    rating: 1
+  },
+  {
+    id: 59,
+    username: 'G',
+    rating: 4
+  },
+  {
+    id: 3,
+    username: 'H',
+    rating: 3.9
+  },
+  {
+    id: 57,
+    username: 'I',
+    rating: 9.4
+  },
+  {
+    id: 64,
+    username: 'J',
+    rating: 0.2
+  }
+]
+
+let maxRating = 0
+for (let i = 0; i < users.length; i += 1) {
+  if (users[i].rating > maxRating) {
+    maxRating = users[i].rating
+  }
+}
+
+console.log(`maxRating is ${maxRating}`)
+
+let firstUserWithRatingHigherThan5 = null
+for (let i = 0; i < users.length; i += 1) {
+  if (users[i].rating > 5) {
+    firstUserWithRatingHigherThan5 = users[i];
+    break;
+  }
+}
+
+console.log(firstUserWithRatingHigherThan5)
+
+
+let usersWithRatingHigherThan5 = 0;
+
+for (let i = 0; i < users.length; i += 1) {
+  if (users[i].rating > 5) {
+    usersWithRatingHigherThan5 += 1;
+  }
+}
+
+console.log(`usersWithRatingHigherThan5: ${usersWithRatingHigherThan5}`)
+
+
+const countUniques = {};
+
+for (let i = 0; i < users.length; i += 1) {
+  const user = users[i];
+  const username = user.username
+     if (!countUniques[username]) {
+       countUniques[username] = 0;
+     }
+     countUniques[username] += 1
+
+  // dla ciekawskich
+  // countUniques[username] = (countUniques[username] || 0) + 1
+  // alternatywa
+  // countUniques[username] = (countUniques[username] ?? 0) + 1
+}
+
+console.log(countUniques)

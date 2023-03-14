@@ -1,0 +1,26 @@
+// fibonnaci
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21
+
+
+const n = 20;
+
+const arr = [0, 1];
+
+// for (let i = 0; i < n; i += 1) {
+for (let i = 1; i <= n; i += 1) {
+  const nextNumber = arr[arr.length - 1] + arr[arr.length - 2];
+  arr.push(nextNumber);
+
+}
+
+console.log(arr)
+
+
+let sum = 0
+for (let i = 0; i < arr.length; i += 1) {
+  console.log(`${i+1} number of fibbonacci = ${arr[i]}`)
+  sum += arr[i]
+}
+
+console.log(`sum of fibonnaci ${sum}`)

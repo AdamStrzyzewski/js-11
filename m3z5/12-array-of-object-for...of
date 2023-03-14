@@ -1,0 +1,28 @@
+// array of object for...of
+
+const books = [{
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "Sen śmiesznego człowieka",
+    author: "Fiodor Dostojewski",
+    rating: 7.75,
+  },
+];
+
+let totalRating = 0;
+
+for (const book of books) {
+  totalRating += book.rating;
+  console.log(book.title)
+}
+
+const avgRating = Math.floor((totalRating / books.length) * 10) / 10
+console.log(avgRating)

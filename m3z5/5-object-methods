@@ -1,0 +1,30 @@
+// object methods
+
+const booksShelf = {
+  books: ["The last kingdom", "Dream Guardian"],
+  getBooks() {
+    // circular
+    // console.log(booksShelf.books)
+    console.log(this.books)
+  },
+  addBook(bookName) {
+    this.books.push(bookName)
+    console.log(`new list of books after adding`, this.books)
+  },
+  removeBook(bookName) {
+    const bookIndex = this.books.indexOf(bookName);
+    if (bookIndex !== -1) {
+      this.books.splice(bookIndex, 1)
+    }
+    console.log(`new list of books after removing`, this.books)
+  }
+}
+
+// console.log(booksShelf)
+
+booksShelf.getBooks()
+booksShelf.addBook("Hobbit")
+booksShelf.removeBook("Dream Guardian")
+// console.log(booksShelf)
+
+// console.log("tekst".toUpperCase())

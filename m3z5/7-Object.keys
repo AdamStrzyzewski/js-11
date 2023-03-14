@@ -1,0 +1,44 @@
+// Object.keys
+const book = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  rating: 8.38,
+};
+
+// Number.parseInt()
+
+const keys = Object.keys(book);
+console.log(keys);
+
+for (let i = 0; i < keys.length; i += 1) {
+  // i === 0
+  // 0 < 4 -> true
+  // iteracja 1
+
+  // i === 1
+  // 1 < 4 -> true
+  // iteracja 2
+
+  // i === 2
+  // 2 < 4 -> true
+  // iteracja 3
+
+  // i === 3
+  // 3 < 4 -> true
+  // iteracja 4
+
+  // i === 4
+  // 4 < 4 -> false
+  // pętla się kończy
+  //   console.log(keys[i])
+  //   console.log(book[keys[i]])
+  //   1 iteracja -> book[keys[0]] -> book['title']
+  //   2 iteracja -> book[keys[1]] -> book['author']
+  //   3 iteracja -> book[keys[2]] -> book['genres']
+  //   4 iteracja -> book[keys[3]] -> book['rating']
+
+  const key = keys[i];
+  const value = book[key];
+  console.log(value);
+}

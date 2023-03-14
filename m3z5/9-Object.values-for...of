@@ -1,0 +1,14 @@
+// Object.values for...of
+const book = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  rating: 8.38,
+};
+
+const values = Object.values(book);
+console.log(values);
+console.log('-----')
+for (const value of values) {
+  console.log(value)
+}

@@ -1,0 +1,19 @@
+// Object.entries
+const book = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  rating: 8.38,
+};
+
+console.log('------KEYS--------')
+console.log(Object.keys(book))
+console.log('------VALUES--------')
+console.log(Object.values(book))
+console.log('------ENTRIES--------')
+console.log(Object.entries(book))
+
+// for (entry of Object.entries(book)) {
+//  console.log(entry[0])
+//  console.log(entry[1])
+// }

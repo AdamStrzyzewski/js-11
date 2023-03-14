@@ -1,0 +1,32 @@
+// modifying objects
+
+const book = {}
+
+console.log(book)
+
+book.a = 10;
+book.a = 30;
+
+book['b'] = 15
+
+// book.c.d = 10; // error
+book.c = {
+  e: 20
+}
+
+book.c.d = 15;
+
+book.f = []
+
+book.f.push("test")
+
+console.log(book)
+
+delete book.a;
+delete book.c.e;
+delete book.f;
+
+// delete book // does nothing
+// book = null // must be declared with let
+// book = {} // must be declared with let
+console.log(book)

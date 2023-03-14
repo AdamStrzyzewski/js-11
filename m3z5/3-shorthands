@@ -1,0 +1,21 @@
+// shorthands
+
+// little messy
+// function getBookObj(title, author, rating = 0) {
+//   return {
+//     title: title,
+//     author: author,
+//     rating: rating
+//   }
+// }
+
+// less messy
+function getBookObj(title, author, rating = 0) {
+  return {
+    title,
+    author,
+    rating
+  }
+}
+
+console.log(getBookObj('Jan Nowak', 'Pinokio', 5))
