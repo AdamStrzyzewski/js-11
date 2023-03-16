@@ -1,0 +1,9 @@
+// destructuring arrays skipping
+
+
+const rgb = [200, 255, 100];
+
+// const blue = rgb[2]
+const [, , blue] = rgb;
+
+console.log(blue)

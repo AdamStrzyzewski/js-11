@@ -1,0 +1,32 @@
+// nested destructuring 
+
+const user = {
+  name: "Adam",
+  tag: "adams",
+  stats: {
+    followers: 100,
+    views: 12512,
+    likes: 324
+  }
+}
+
+
+
+const {
+  name,
+  tag,
+  // here is a full stats nested object
+  stats,
+  // only the selected nested props as variables
+  stats: {
+    // const followers = user.stats.followers
+    followers,
+    likes = 0,
+    views: userViews
+  }
+} = user
+
+
+console.log(stats)
+console.log(followers)
+console.log(userViews)

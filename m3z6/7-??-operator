@@ -1,0 +1,17 @@
+// ?? operator
+
+const a = {
+  propA: 0
+}
+
+// a.propA is falsy
+console.log(a.propA || 15)
+// typoeof a.propA === 'undefined'
+console.log(a.propA ?? 15)
+
+
+const {
+  propA = NaN
+} = a
+
+console.log(propA)

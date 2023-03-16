@@ -1,0 +1,40 @@
+// spread... object trap
+
+const a = {
+  prop: 10,
+  prop2: 35
+}
+
+const b = {
+  prop: 20,
+  prop3: 45
+}
+
+
+// const c = {
+//   prop: a.prop,
+//   prop2: a.prop2,
+//   prop: b.prop,
+//   prop3: b.prop3
+// }
+const c = {
+  ...a,
+  ...b
+}
+
+
+// const c = {
+//   prop: b.prop,
+//   prop3: b.prop3
+//   prop: a.prop,
+//   prop2: a.prop2,
+// }
+const d = {
+  ...b,
+  ...a
+}
+
+console.log({
+  c,
+  d
+})

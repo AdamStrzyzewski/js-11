@@ -1,0 +1,9 @@
+// destructuring arrays rest
+
+const rgb = [200, 255, 100];
+
+// const red = rgb[0]
+// const otherColors = [rgb[1], rgb[2]]
+const [red, ...otherColors] = rgb;
+
+console.log(red, otherColors)

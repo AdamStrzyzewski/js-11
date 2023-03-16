@@ -1,0 +1,15 @@
+// rest in functions
+
+// rest
+function multiply(a, b, ...rest) {
+  console.log({
+    a,
+    b,
+    rest
+  })
+}
+
+const args = [1,2,3,4]
+// spread
+multiply(...args)
+// a = 1, b = 2, ...rest = 3,4

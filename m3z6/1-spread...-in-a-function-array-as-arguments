@@ -1,0 +1,28 @@
+// spread... in a function array as arguments
+
+const userInput = '15,13424,0,-4121,4,12,57,23,23,86,323';
+
+const parsed = userInput.split(",")
+
+for (let i = 0; i < parsed.length; i += 1) {
+  parsed[i] = Number.parseInt(parsed[i])
+}
+
+// console.log(Math.max(1, 15, 49, 32))
+
+// console.log(parsed)
+
+// spread
+// console.log(Math.max(...parsed))
+// console.log(Math.max(15,
+//   13424,
+//   0, -4121,
+//   4,
+//   12,
+//   57,
+//   23,
+//   23,
+//   86,
+//   323))
+  
+console.log(...parsed)

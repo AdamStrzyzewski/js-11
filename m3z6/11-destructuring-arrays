@@ -1,0 +1,11 @@
+// destructuring arrays
+
+
+const rgb = [200, 255, 100];
+
+// const red = rgb[0]
+// const green = rgb[1]
+// const blue = rgb[2]
+const [red, green, blue] = rgb;
+
+console.log(`rgb(${red}, ${green}, ${blue})`)

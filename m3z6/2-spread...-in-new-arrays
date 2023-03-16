@@ -1,0 +1,25 @@
+// spread... in new arrays 
+
+const temps = [1,2,3,4]
+const temps2 = [5,6,7,8]
+
+// no reference (first level only - shallow)
+// const temps3 = [1,2,3,4,5,6,7,8]
+const temps3 = [...temps, ...temps2]
+// no reference
+const temps4 = [...temps]
+// there is reference
+const temps5 = temps
+
+const temps6 = [...temps2.slice(-2), ...temps]
+
+temps[0] = 15;
+
+
+// console.log(temps6)
+// console.log(temps3)
+// console.log(temps)
+
+
+console.log(temps4)
+console.log(temps5)

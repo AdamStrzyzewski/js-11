@@ -1,0 +1,38 @@
+// shallow copy
+
+const a = [{
+    prop: 1
+  },
+  {
+    prop: 15,
+  },
+  {
+    prop: 12341,
+    propB: {
+      propC: 1234
+    }
+  },
+  200
+]
+
+const b = [...a]
+// const b = [
+// a[0],
+// a[1],
+// a[2],
+// a[3]
+// ]
+
+a[0].prop = 214
+a[3] = 250
+// console.log({
+//   a,
+//   b
+// })
+
+
+// Lodash
+// absolutely no references
+const x = _.cloneDeep(a)
+a[0].prop = 59328
+console.log({a,b,x})

@@ -1,0 +1,38 @@
+// Destructuring in a loop
+
+const books = [{
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+    pageCount: 240
+  },
+];
+
+// for (const book of books) {
+//   const {
+//     title,
+//     author
+//   } = book
+
+//   console.log({
+//     title,
+//     author
+//   })
+// }
+
+for (const {
+    title,
+    author,
+    pageCount = 500
+  } of books) {
+  console.log({
+    title,
+    author,
+    pageCount
+  })
+}

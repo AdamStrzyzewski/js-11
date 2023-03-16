@@ -1,0 +1,28 @@
+// spread... in new object
+
+const a = {
+  propA1: 10,
+  propA2: 15
+}
+
+const b = {
+  propB1: 20,
+  propB2: 25
+}
+
+// shallow copy without reference
+const c = {
+  ...a,
+  ...b
+}
+
+// reference
+const d = a;
+
+a.propA1 = 3153;
+
+console.log({
+  c,
+  a,
+  d
+})

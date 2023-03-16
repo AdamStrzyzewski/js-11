@@ -1,0 +1,40 @@
+// Destructuring object literal
+
+const book = {
+  title: "The Last Kingdom",
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  isPublic: true,
+  rating: 8.38,
+}
+
+const {
+  // const title = book.title
+  title,
+  // const author = book.author
+  author,
+  // const genres = book.genres
+  genres,
+  // const score = book.rating
+  rating: score,
+  // const coverImage = book.coverImage ?? "https://via.placeholder.com/640/480"
+  coverImage = "https://via.placeholder.com/640/480",
+  // const pages = book.pageCount ?? NaN
+  // const pages = typeof book.pageCount === 'undefined' ? NaN : book.pageCount
+  pageCount: pages = NaN
+} = book;
+
+const message =
+  `This book has a title of ${title}, it was written by ${author}`
+console.log(score)
+console.log(coverImage)
+console.log(pages)
+
+console.log(book)
+
+// reference is kept
+// genres.push("sci-fi")
+// console.log(genres)
+// console.log(book.genres)
+
+// console.log(message)

@@ -1,0 +1,66 @@
+// object as a param
+const lettersLC = 'abcdefghijklmnopqrstuvwxyz'
+const lettersUC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const numbersWo0 = '123456789'
+const numbers = `0${numbersWo0}`
+const SETS = {
+  lettersLC,
+  lettersUC,
+  letters: `${lettersLC}${lettersUC}`,
+  numbers,
+  numbersWo0,
+  lettersLCNumbersWo0: `${lettersLC}${numbersWo0}`,
+  lettersLCWtNum: `${lettersLC}0123456789`,
+  lettersUCWtNum: `${lettersUC}${numbers}`,
+  lettersWithNumbers: `${lettersLC}${lettersUC}${numbers}`,
+}
+// console.log(SETS)
+function getRandomString({
+  len = 6,
+  charSet = 'lettersUC',
+  returnAs = 'string',
+  delimiter = ""
+} = {}) {
+  const result = []
+  const chars = SETS[charSet] || charSet
+
+  for (let i = 0; i < len; i++) {
+    result.push(chars[(Math.floor(Math.random() * chars.length))])
+  }
+
+  if (returnAs === 'array') {
+    return result
+  }
+  if (returnAs === 'string') {
+    return result.join(delimiter)
+  }
+  
+  throw new Error("not supported returnAs")
+}
+
+console.log(getRandomString({
+  len: 3,
+  charSet: 'numbers'
+}))
+
+console.log(getRandomString({
+  len: 10,
+  delimiter: "----"
+}))
+
+console.log(getRandomString({
+  charSet: 'numbers',
+  returnAs: 'array'
+}))
+
+console.log(getRandomString())
+console.log(getRandomString({
+  len: 20,
+  charSet: "!@#$%^&"
+}))
+
+
+// console.log(getRandomString({}))
+// console.log(getRandomString(10, 'lettersUC'))
+// console.log(getRandomString(5, 'lettersUC'))
+// console.log(getRandomString(7, 'lettersUC'))
