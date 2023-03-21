@@ -1,0 +1,27 @@
+// arrow function
+
+function add(a, b) {
+  return a + b
+}
+
+
+// fat arrow
+const arrowAdd1 = (a, b) => {
+  console.log("dodatkowa instrukcja")
+  return a + b
+}
+
+const arrowAdd2 = (a, b) => a + b
+
+const cLog = value => {
+    console.log(`twoja wartość: ${value}`)
+}
+
+console.log(add(1, 2))
+console.log(arrowAdd1(1, 2))
+console.log(arrowAdd2(1, 2))
+
+
+const r = cLog("test")
+
+console.log(r) // undefined, same as a normal function

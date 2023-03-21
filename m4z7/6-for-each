@@ -1,0 +1,13 @@
+// for each
+
+const arr = [5, 1, 2, 3, 4, 2, 2, 4, 5, 3]
+
+arr.forEach((element, index, array) => {
+  console.log(element)
+  console.log(index)
+  // console.log(array) // rarely used
+  // console.log(array[index])
+  console.log('--------')
+//   break; // does not work
+//   continue; // does not work
+})

@@ -1,0 +1,45 @@
+// multiple callbacks
+
+function processCall({
+  recipient,
+  success,
+  fail
+}) {
+  const isRecipientAvailable = Math.random() > 0.5;
+
+  if (isRecipientAvailable) {
+    return success(recipient)
+  }
+  return fail(recipient)
+
+}
+
+function takeCall(name) {
+  console.log(`Łączę z ${name}`)
+}
+
+function answeringMachine(name) {
+  console.log(`Zostaw wiadomość dla ${name}`)
+}
+
+function leaveHoloMessage(name) {
+  console.log(`Zostaw hologram dla ${name}`)
+}
+
+function call(user) {
+  processCall({
+    recipient: user.name,
+    success: takeCall,
+    fail: user.isHolo ? leaveHoloMessage : answeringMachine,
+  })
+  console.log("This call has been processed")
+}
+
+call({
+  name: "Adam"
+})
+
+call({
+  name: "Rafał",
+  isHolo: true
+})

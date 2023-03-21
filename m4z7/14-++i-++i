@@ -1,0 +1,16 @@
+// ++i ++i
+
+let i = 0
+console.log(i++) // 0
+console.log(++i) // 1
+
+
+++i
+console.log(i)
+i++
+console.log(i)
+
+--i
+console.log(i)
+i--
+console.log(i)

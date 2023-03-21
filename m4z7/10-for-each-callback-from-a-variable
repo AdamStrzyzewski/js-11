@@ -1,0 +1,35 @@
+// for each callback from a variable
+
+const users = [{
+    name: "Adam",
+    rating: 5
+  },
+  {
+    name: "Oskar",
+    rating: 7
+  },
+  {
+    name: "Łukasz",
+    rating: 2
+  },
+  {
+    name: "Filip",
+    rating: 8
+  },
+  {
+    name: "Tomek",
+    rating: 3
+  },
+]
+
+
+const logUserIfRatingHighEnough = ({
+  name,
+  rating
+}) => {
+  if (rating > 3) {
+    console.log(name)
+  }
+}
+
+users.forEach(logUserIfRatingHighEnough)

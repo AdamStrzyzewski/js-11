@@ -1,0 +1,25 @@
+// imperative vs declarative part 2
+// https://codeburst.io/imperative-vs-declarative-javascript-8b5e45a602dd
+
+// imperative
+const arrayContainsAnotherArray = (arr1, arr2) => {
+  for (let i = 0; i < arr1.length; i += 1) {
+    if (arr2.indexOf(arr1[i]) === -1) {
+      return false
+    }
+  }
+  return true
+}
+
+console.log(arrayContainsAnotherArray([1, 2, 3], [2, 3, 4]))
+console.log(arrayContainsAnotherArray([1, 2, 3], [1, 2, 3, 4]))
+
+console.log("-------")
+
+// declarative
+const arrayContainsAnotherArray2 = (arr1, arr2) =>
+  arr1.every(el => arr2.includes(el))
+
+
+console.log(arrayContainsAnotherArray2([1, 2, 3], [2, 3, 4]))
+console.log(arrayContainsAnotherArray2([1, 2, 3], [1, 2, 3, 4]))

@@ -1,0 +1,36 @@
+// abstraction
+function repeatAndReturn({
+  iterationCount,
+  cb
+}) {
+  const returns = []
+  for (let i = 0; i < iterationCount; i += 1) {
+    returns.push(cb(i))
+  }
+  return returns
+}
+
+function simpleLog(value) {
+  console.log(value)
+}
+
+function timedLog(value) {
+  console.log(`${new Date()} | ${value}`)
+}
+
+repeatAndReturn({
+  iterationCount: 5,
+  cb: simpleLog
+})
+
+repeatAndReturn({
+  iterationCount: 5,
+  cb: timedLog
+})
+
+const results = repeatAndReturn({
+  iterationCount: 5,
+  cb: Math.random
+})
+
+console.log(results)

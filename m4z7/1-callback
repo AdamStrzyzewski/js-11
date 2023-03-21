@@ -1,0 +1,35 @@
+// callback
+
+function greet(name) {
+  console.log(`Pozdrawiam ${name}`)
+}
+
+function greetVIP(name) {
+  console.log(`Pozdrawiam Bardzo Mocno Pana Prezesa: ${name}`)
+}
+
+// greet("Adam")
+
+function registerGuest({
+  name,
+  //   isVIP = false,
+  greetCallback
+}) {
+  console.log(`Nastąpiła rejestracja gościa o imieniu ${name}`)
+  //   if (isVIP) {
+  //     greetVIP(name)
+  //   } else {
+  //     greet(name)
+  //   }
+  greetCallback(name)
+}
+
+registerGuest({
+  name: "Adam",
+  greetCallback: greetVIP
+})
+
+registerGuest({
+  name: "Maciej",
+  greetCallback: greet
+})

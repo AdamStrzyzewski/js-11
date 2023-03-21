@@ -1,0 +1,26 @@
+// callback inline
+
+function registerGuest({
+  name,
+  callback
+}) {
+  console.log(`Rejestracja gościa ${name}.`);
+  // console.log(callback);
+  callback(name)
+}
+
+// inline callback
+registerGuest({
+  name: "Adam",
+  callback: function greet(fnName) {
+    console.log(`Pozdrawiam ${fnName}`)
+  }
+})
+
+// anonymous function
+registerGuest({
+  name: "Adam",
+  callback: function(fnName) {
+    console.log(`Pozdrawiam 2 ${fnName}`)
+  }
+})

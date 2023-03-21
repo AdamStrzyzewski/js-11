@@ -1,0 +1,42 @@
+// for each explanation
+
+const users = [{
+    name: "Adam",
+    rating: 5
+  },
+  {
+    name: "Oskar",
+    rating: 7
+  },
+  {
+    name: "Łukasz",
+    rating: 2
+  },
+  {
+    name: "Filip",
+    rating: 8
+  },
+  {
+    name: "Tomek",
+    rating: 3
+  },
+]
+
+// this is what happens inside a forEach
+function forEach(arr, cb) {
+  for (let i = 0; i < users.length; i += 1) {
+    cb(users[i], i, users)
+  }
+}
+
+for (let i = 0; i < users.length; i += 1) {
+  console.log(users[i].name, i)
+}
+console.log("------")
+users.forEach((user, i) => {
+  console.log(user.name, i)
+})
+console.log("------")
+forEach(users, (user, i) => {
+  console.log(user.name, i)
+})
