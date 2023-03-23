@@ -1,0 +1,28 @@
+// arrow callback
+// Callback dla metody `forEach` to funkcja strzałkowa
+// t10 m4
+
+
+
+// classic functions
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+
+//   orderedItems.forEach(function (item) {
+//     totalPrice += item;
+//   });
+
+//   return totalPrice;
+// }
+
+
+// arrow functions
+const calculateTotalPrice = (orderedItems) => {
+  let totalPrice = 0;
+
+  orderedItems.forEach((item) => {
+    totalPrice += item;
+  });
+
+  return totalPrice;
+}

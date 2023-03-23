@@ -1,0 +1,42 @@
+// map object array
+
+const students = [{
+    name: "Mango",
+    score: 83,
+    classes: ['maths', 'science']
+  },
+  {
+    name: "Poly",
+    score: 59
+  },
+  {
+    name: "Ajax",
+    score: 37
+  },
+  {
+    name: "Kiwi",
+    score: 94
+  },
+  {
+    name: "Houston",
+    score: 64
+  },
+];
+
+const names = students.map(student => student.name)
+
+// console.log(names)
+// console.log(students)
+
+const students2 = students.map(student => ({ ...student,
+  score: student.score / 10,
+  // get rid of 3rd level reference
+  // classes: [...student.classes]
+}))
+
+// 2nd level reference
+students[0].name = "TEST"
+students[0].classes.push("TEST")
+
+console.log(students)
+console.log(students2)

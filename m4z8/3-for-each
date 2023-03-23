@@ -1,0 +1,9 @@
+// for each
+
+const arr = ["Pierwszy", "Drugi", "Trzeci"]
+
+const x = arr.forEach((el, index, array) => {
+  console.log(`${el} ${index}`)
+})
+
+console.log(x)

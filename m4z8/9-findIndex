@@ -1,0 +1,36 @@
+// findIndex
+
+const colorPickerOptions = [{
+    label: "red",
+    color: "#F44336"
+  },
+  {
+    label: "green",
+    color: "#4CAF50"
+  },
+  {
+    label: "blue",
+    color: "#2196F3"
+  },
+  {
+    label: "pink",
+    color: "#E91E63"
+  },
+  {
+    label: "indigo",
+    color: "#3F51B5"
+  },
+];
+
+const foundBlue = colorPickerOptions.findIndex((el) => {
+  console.log(el.label)
+  return el.label === "blue"
+})
+
+const unfound = colorPickerOptions.findIndex((el) => {
+  // console.log(el.label)
+  return el.label === "bifjasdlue"
+})
+
+console.log(foundBlue) // 2
+console.log(unfound) // -1

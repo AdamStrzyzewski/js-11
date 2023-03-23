@@ -1,0 +1,10 @@
+// sorting strings
+
+const students = ["Piotr", "Łukasz", "Filip", "Lukasz"]
+
+// localeCompare -> 0 | -1 | 1
+students.sort((a, b) => a.localeCompare(b))
+console.log(students)
+
+students.sort() // issue with Ł
+console.log(students)

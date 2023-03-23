@@ -1,0 +1,16 @@
+// reduce 2
+
+const array = [23, 432, 532, -987]
+
+
+const total = array.reduce(
+  // 1 iteracja, acc = 0, el = 23 -> zwracam 0 + 23
+  // 2 iteracja, acc = 23, el = 432 -> zwracam 23 + 432
+  // 3 iteracja, acc = 455, el = 532 -> zwracam 455 + 532
+  // 4 iteracja, acc = 987, el = -987 -> zwracam 987 + (-987)
+  // koniec tablicy, następuje zwrotka acc === 0
+  (acc, el) => acc + el,
+  0
+)
+
+console.log(`total: ${total}`)

@@ -1,0 +1,21 @@
+// every and some
+
+const array = [1, 2, 3, -5]
+
+console.log(
+  // array[0] -> 1 > 0 => true &&
+  // array[1] -> 2 > 0 => true &&
+  // array[2] -> 3 > 0 => true &&
+  // array[3] -> -5 > 0 => false 
+  array.every((el) => el > 0),
+  // array[0] -> 1 > 0 => true ||
+  // array[1] -> 2 > 0 => true ||
+  // array[2] -> 3 > 0 => true ||
+  // array[3] -> -5 > 0 => false 
+  array.some((el) => el > 0)
+)
+
+
+const array2 = [1,2,4,23,42]
+
+console.log(array2.every((el) => el > 0))

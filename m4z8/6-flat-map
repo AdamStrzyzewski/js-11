@@ -1,0 +1,22 @@
+// flat map
+
+const students = [{
+    name: "Mango",
+    courses: ["matematyka", "fizyka", ["przyroda", "geografia"]]
+  },
+  {
+    name: "Poly",
+    courses: ["informatyka", "matematyka"]
+  },
+  {
+    name: "Kiwi",
+    courses: ["fizyka", "biologia"]
+  },
+];
+
+console.log(students.map(student => student.name))
+console.log(students.map(student => student.courses))
+// flat map only works for 2 dimension
+console.log(students.flatMap(student => student.courses))
+// all levels
+// console.log(students.flatMap(student => student.courses).flatMap(el => el))

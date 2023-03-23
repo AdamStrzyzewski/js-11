@@ -1,0 +1,31 @@
+// pure functions
+
+// dirtyMultiply([1,2,3], 5) => [5,10,15]
+const dirtyMultiply = (array, value) => {
+  for (let i = 0; i < array.length; i += 1) {
+    array[i] = array[i] * value
+  }
+  return array
+}
+
+// const arr = [1, 2, 3]
+// console.log(arr)
+// console.log(dirtyMultiply(arr, 5))
+// console.log(dirtyMultiply(arr, 3))
+// console.log(dirtyMultiply(arr, 2))
+
+const pureMultiply = (array, value) => {
+  const multipliedArray = [...array]
+  
+  for (let i = 0; i < multipliedArray.length; i += 1) {
+    multipliedArray[i] = multipliedArray[i] * value
+  }
+  
+  return multipliedArray
+}
+
+const arr = [1, 2, 3]
+console.log(arr)
+console.log(pureMultiply(arr, 5))
+console.log(pureMultiply(arr, 3))
+console.log(pureMultiply(arr, 2))

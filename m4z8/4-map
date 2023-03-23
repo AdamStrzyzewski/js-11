@@ -1,0 +1,13 @@
+// map
+
+const arr = ["Pierwszy", "Drugi", "Trzeci"]
+
+const mappedArr = arr.map(el => el.toUpperCase())
+
+const mappedArr2 = arr.map((el, index, array) => {
+  return el.toLowerCase()
+})
+
+console.log(mappedArr)
+console.log(mappedArr2)
+console.log(arr)

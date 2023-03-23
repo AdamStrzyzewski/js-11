@@ -1,0 +1,55 @@
+// reduce complex
+
+const tweets = [{
+    id: "000",
+    likes: 5,
+    tags: ["js", "nodejs"]
+  },
+  {
+    id: "001",
+    likes: 2,
+    tags: ["html", "css"]
+  },
+  {
+    id: "002",
+    likes: 17,
+    tags: ["html", "js", "nodejs"]
+  },
+  {
+    id: "003",
+    likes: 8,
+    tags: ["css", "react"]
+  },
+  {
+    id: "004",
+    likes: 0,
+    tags: ["js", "nodejs", "react"]
+  },
+];
+
+const totalLikes = tweets.reduce((acc, el) => acc + el.likes, 0)
+
+console.log(totalLikes)
+
+const tagStats = tweets.reduce((acc, el) => {
+  el.tags.forEach(tag => {
+    acc[tag] = typeof acc[tag] === 'undefined' ? 1 : acc[tag] + 1
+  })
+  return acc
+}, {})
+
+console.log(Object.keys(tagStats))
+
+console.log(tagStats)
+
+const uniqueTags = tweets.reduce((acc, el) => {
+  el.tags.forEach(tag => {
+    if (acc.indexOf(tag) === -1) {
+      acc.push(tag)
+    }
+  })
+  return acc
+}, [])
+
+console.log('----')
+console.log(uniqueTags)

@@ -1,0 +1,27 @@
+// filter
+
+const values = [51, -3, 27, 21, -68, 42, -37, 0];
+
+// greater than 0
+console.log(values.filter((n) => {
+  return n > 0
+}))
+
+// less or equal 0
+console.log(values.filter((n) => {
+  return n <= 0
+}))
+
+
+console.log(values.filter((n) => {
+  if (n % 2 === 0) {
+    return true
+  }
+  if (n > 0) {
+    return true
+  }
+  return false
+}))
+
+
+console.log(values)

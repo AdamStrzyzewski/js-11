@@ -1,0 +1,16 @@
+// method chaining 
+
+const string = 'Adam Strzyżewskdiasjfidsajfiasdi'
+
+const chain = string.split("") // array
+  .filter(el => el !== ' ') // array filtered
+  .map(el => el.toUpperCase())  // array mapped
+  .map(el => el.toLowerCase())  // array mapped
+  .sort((a, b) => a.localeCompare(b)) // array sorted
+  .reduce((acc, el) => {
+    acc[el] = typeof acc[el] === 'undefined' ? 1 : acc[el] + 1
+    return acc
+  }, {}) // return object
+
+
+console.log(chain)
