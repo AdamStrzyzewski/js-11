@@ -1,0 +1,36 @@
+// method call
+
+function greetGuest(greeting) {
+  console.log(`${greeting}, ${this.username}`)
+}
+
+function calculateRate(greeting, days, dayRate) {
+  console.log(`${greeting}, ${this.username} ows ${days * dayRate}`)
+}
+
+// for arrows nothing will work
+// const greetGuest = (greeting) => {
+//   console.log(`${greeting}, ${this.username}`)
+// }
+
+
+greetGuest("hello")
+
+const mango = {
+  username: "Mango"
+}
+
+const poly = {
+  username: "Poly"
+}
+
+// fn.call(obj, arg1, arg2, ...)
+greetGuest.call(mango, "hello")
+greetGuest.call(poly, "hello")
+
+calculateRate.call(mango, "pay up", 10, 150)
+calculateRate.call(poly, "pay up now", 40, 250)
+
+// alternatywa
+// mango.greet = greetGuest
+// mango.greet("dzień dobry")

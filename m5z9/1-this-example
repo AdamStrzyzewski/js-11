@@ -1,0 +1,14 @@
+// this example
+function generateUser(username) {
+  return {
+    username,
+    showName() {
+      // console.log(this) // this object
+      console.log(this.username)
+    }
+  }
+}
+
+const maciej2 = generateUser("Maciej")
+
+maciej2.showName()

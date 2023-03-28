@@ -1,0 +1,15 @@
+// this example 2
+
+const bookShelf = {
+  authors: ["Bernard Cornwell", "Robert Sheckley"],
+  getAuthors() {
+    return this.authors
+  },
+  addAuthor(authorName) {
+    this.authors.push(authorName)
+  }
+}
+
+console.log(bookShelf.getAuthors())
+bookShelf.addAuthor("Stephen King")
+console.log(bookShelf.getAuthors())

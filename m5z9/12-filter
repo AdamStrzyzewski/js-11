@@ -1,0 +1,8 @@
+// filter
+const x = [1,2,3,4,5]
+
+console.log(x.filter(el => el > 3)) // [4,5]
+console.log(x.filter(el => el > 5)) // []
+console.log(x.filter(el => el > 4)) // [5]
+
+console.log(x) // [1,2,3,4,5]

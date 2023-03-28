@@ -1,0 +1,25 @@
+// this global
+
+// console.log(this) // window in a browser
+
+// "use strict"
+// console.log(this) // undefined
+
+
+function showThis() {
+  console.log(this)
+}
+
+// showThis() // window
+
+const user = {
+  username: "Mango",
+  // showContext(){
+  //     console.log(this)
+  // }
+}
+
+user.showContext = showThis
+
+// showThis() // window
+user.showContext() // Object user

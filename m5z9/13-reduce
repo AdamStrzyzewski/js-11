@@ -1,0 +1,11 @@
+// reduce
+const x = [1, 2, 3, 4, 5]
+
+x.reduce((acc, el, i, arr) => {
+  console.log(acc)
+  console.log(el)
+  // console.log(i) // rarely used
+  // console.log(arr) // almost never used
+  console.log('-----------')
+  return `${acc}${el}`
+}, '')

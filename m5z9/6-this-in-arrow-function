@@ -1,0 +1,15 @@
+// this in arrow function
+
+const showThis = () => {
+    console.log(`this in showThis`, this) // context is set here
+}
+
+// showThis() // window
+
+const user = {
+    username:"Mango"
+}
+
+user.showContext = showThis
+
+user.showContext() // window

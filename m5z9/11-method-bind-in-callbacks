@@ -1,0 +1,30 @@
+// method bind in callbacks
+const customer = {
+    firstName: "Jacob",
+    lastName: "Mercer",
+    getFullName(){
+        // console.log(this) // when this is called as a callback -> window
+        // console.log(this) // when this is called as a object method -> Object customer
+        return `----${this.firstName}-${this.lastName}---`
+    }
+}
+const customer2 = {
+    firstName: "Adam",
+    lastName: "Test",
+    getFullName(){
+        return `----${this.firstName}-${this.lastName}---`
+    }
+}
+
+// console.log(customer.getFullName())
+
+function getMessage(callback){
+    console.log(`wynik callback to ${callback()}`)
+}
+
+getMessage(() => "Testowy zwrot")
+
+getMessage(customer.getFullName.bind(customer))
+
+// this is unreadable 
+getMessage(customer.getFullName.bind(customer2))

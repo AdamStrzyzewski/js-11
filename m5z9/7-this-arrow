@@ -1,0 +1,14 @@
+// this arrow
+
+const hotel = {
+  username: "Resort Hotel",
+  showThis() {
+    const foo = () => {
+      console.log(this) // Object user
+    }
+    foo()
+    console.log(this) // Object user
+  }
+}
+
+hotel.showThis()

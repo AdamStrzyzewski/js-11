@@ -1,0 +1,26 @@
+// method apply
+
+function greetGuest(greeting) {
+  console.log(`${greeting}, ${this.username}`)
+}
+
+function calculateRate(greeting, days, dayRate) {
+  console.log(`${greeting}, ${this.username} ows ${days * dayRate}`)
+}
+
+greetGuest("hello")
+
+const mango = {
+  username: "Mango"
+}
+
+const poly = {
+  username: "Poly"
+}
+
+// fn.call(obj, [arg1, arg2])
+greetGuest.apply(mango, ["hello"])
+greetGuest.apply(poly, ["hello"])
+
+calculateRate.apply(mango, ["pay up", 10, 150])
+calculateRate.apply(poly, ["pay up now", 40, 250])

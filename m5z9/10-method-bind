@@ -1,0 +1,28 @@
+// method bind
+
+function greet() {
+  console.log(`welcome ${this.username} to ${this.service}`)
+}
+
+const mango = {
+  username: "Mango",
+  service: "Steam"
+}
+
+const mangoGreet = greet.bind(mango) // copy of a function with mango as context
+
+mangoGreet()
+mangoGreet()
+mangoGreet()
+
+// unnecessary
+// mango.greet = greet.bind(mango)
+// mango.greet()
+// this is enough
+// mango.greetWithoutBind = greet
+// mango.greetWithoutBind()
+
+
+// greet()
+// greet.call(mango)
+// greet.apply(mango)
