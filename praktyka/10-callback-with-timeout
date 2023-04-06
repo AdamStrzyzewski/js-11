@@ -1,0 +1,38 @@
+// callback with timeout
+
+const users = [{
+  name: "John",
+  likes: 45
+}, {
+  name: "Mary",
+  likes: 20
+}, {
+  name: "Jack",
+  likes: 38
+}]
+
+function getUsersData(cb) {
+  const timeout = 3000 // 3s
+
+  setTimeout(() => {
+    console.log(`finished getUsersData()`)
+    cb(users)
+  }, timeout)
+}
+
+
+function getUserByName(name, cb) {
+  console.log(`finished getUserByName()`)
+  cb(users.find(el => el.name === name))
+}
+
+console.log(1)
+getUsersData((users) => {
+  console.log(users)
+})
+
+getUserByName("Jack", (user) => {
+    console.log(user)
+})
+
+console.log(2)

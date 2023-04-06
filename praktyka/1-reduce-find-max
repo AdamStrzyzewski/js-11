@@ -1,0 +1,20 @@
+// reduce find max
+const arr = [4, 2, 5, 6, 7, 7, 2, 23, 4, 6, 8, 9, 0, 5, 4, -534, 534, 6, 2546]
+
+
+const min = arr.reduce(
+  (acc, el) => {
+    // console.log(`acc: ${acc}, el: ${el} -> ${el} < ${acc} ? ${el} : ${acc}`)
+    return el < acc ? el : acc
+  }, Infinity // infinity nieobowiązkowo
+)
+
+const max = arr.reduce(
+  (acc, el) => {
+    console.log(`acc: ${acc}, el: ${el} -> ${el} > ${acc} ? ${el} : ${acc}`)
+    return el > acc ? el : acc
+  }, -Infinity // -infinity nieobowiązkowo
+)
+
+console.log(min)
+console.log(max)

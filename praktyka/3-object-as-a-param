@@ -1,0 +1,33 @@
+// object as a param
+
+// poor practice
+// function logger(values, type = 'info', delimiter = ',', includeDate = false) {
+//   console.log(`${includeDate ? new Date().toString() : ''} [${type.toUpperCase()}] ${values.join(delimiter)}`)
+// }
+// logger(['err', 'err2'], 'error', "/")
+// logger(['info', 'info2'], 'info', ',', true)
+
+
+function logger({
+  values = [],
+  type = 'info',
+  delimiter = ',',
+  includeDate = false
+} = {}) {
+  console.log(`${includeDate ? new Date().toString() : ''} [${type.toUpperCase()}] ${values.join(delimiter)}`)
+}
+
+
+logger({
+  delimiter: "/",
+  values: ['err', 'err2'],
+  type: 'error'
+});
+
+logger({
+  values: ['info', 'info2'],
+  includeDate: true
+})
+
+logger()
+// logger({}) without default {} in function declaration

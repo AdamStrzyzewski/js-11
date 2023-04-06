@@ -1,0 +1,27 @@
+// array destructuring
+const dataLines = [
+  "John ,Doe,56 Greenhoof Road",
+  "Nona,O'Reily ,560 Bloomfield Ave",
+  "Madge,   Ortiz, 54 Navasota St"
+]
+
+dataLines.forEach(line => {
+  const splitRow = line.split(",").map(el => el.trim())
+  // console.log(splitRow)
+  // console.log({
+  //     name: splitRow[0],
+  //     lastName: splitRow[1],
+  //     address1: splitRow[2]
+  // })
+
+  const [name, lastName, address1] = splitRow
+  //   const name = splitRow[0]
+  //   const lastName = splitRow[1]
+  //   const address1 = splitRow[2]
+  console.log({
+    name,
+    lastName,
+    address1
+  })
+  console.log('---')
+})

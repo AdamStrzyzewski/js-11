@@ -1,0 +1,28 @@
+// class stack implemention
+
+class Stack {
+  #stack = []
+  read() {
+    return this.#stack.pop()
+  }
+
+  write(val) {
+    this.#stack.push(val)
+  }
+}
+
+
+const el = new Stack()
+
+// console.log(el.#stack) // error
+// el.#stack = 40 // error
+
+el.write("First Element")
+el.write("Second Element")
+el.write("Third Element")
+el.write("Fourth Element")
+
+console.log(el.read())
+console.log(el.read())
+console.log(el.read())
+console.log(el.read())

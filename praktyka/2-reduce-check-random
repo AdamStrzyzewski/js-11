@@ -1,0 +1,28 @@
+// reduce check random
+
+const arr = []
+
+for (let i = 0; i < 1000000; i += 1) {
+  arr.push(Math.floor(Math.random() * 10) + 1)
+}
+
+// console.log(arr)
+
+/*
+{
+    9: 1,
+    2: 1,
+    7: 1
+}
+*/
+
+const counts = arr.reduce((acc, el) => {
+  if (!acc[el]) {
+    acc[el] = 0
+  }
+
+  acc[el] += 1
+  return acc
+}, {})
+
+console.log(counts)

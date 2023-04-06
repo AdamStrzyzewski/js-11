@@ -1,0 +1,67 @@
+// class user
+
+class Users {
+  #users = []
+
+  addUser({
+    name,
+    password
+  }) {
+    const id = Math.floor(Math.random() * 1000)
+    this.#users.push({
+      id,
+      name,
+      password: Users.hashPassword(password)
+    })
+    return id
+  }
+
+  getUser(id) {
+    return this.#users.find(el => el.id === id)
+  }
+
+  getFullUsers() {
+    return this.#users
+  }
+
+  set users(value) {
+    throw new Error("You can't set this")
+  }
+
+  get users() {
+    return this.#users.map(el => el.id)
+  }
+
+  // extremely bad hashing
+  static hashPassword(password) {
+    return password.split("").map(letter => String.fromCharCode(letter.charCodeAt(0) + 1)).join("")
+  }
+
+  static checkPassword(hash, password) {
+    const unscrambled = hash.split("").map(letter => String.fromCharCode(letter.charCodeAt(0) - 1)).join("")
+    return unscrambled === password
+  }
+}
+
+const users = new Users()
+
+const firstId = users.addUser({
+  name: "John",
+  password: "12345asdfg"
+})
+users.addUser({
+  name: "Mary",
+  password: "fodjsfg"
+})
+users.addUser({
+  name: "Jo",
+  password: "fdsjfpfok3j2"
+})
+
+console.log(users.users)
+console.log(users.getFullUsers())
+
+const john = users.getUser(firstId)
+
+console.log(Users.checkPassword(john.password, 'innehaslo'))
+console.log(Users.checkPassword(john.password, '12345asdfg'))

@@ -1,0 +1,33 @@
+// object destructuring
+function calculateMeanTemperature(forecast) {
+
+  const {
+    // today,
+    today: {
+      low: todayLow, // const todayLow = forecast.today.low
+      high: todayHigh // const todayHigh = forecast.today.high
+    },
+    tomorrow: {
+      low: tomorrowLow, // const tomorrowLow = forecast.tomorrow.low
+      high: tomorrowHigh // const tomorrowHigh = forecast.tomorrow.high
+    }
+  } = forecast
+  // console.log(today)
+  return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4
+  //   return (forecast.today.low + forecast.today.high + forecast.tomorrow.low + forecast.tomorrow.high) / 4
+}
+
+const arg = {
+  today: {
+    low: 10,
+    high: 20
+  },
+  tomorrow: {
+    low: 20,
+    high: 30
+  }
+}
+
+
+const temp = calculateMeanTemperature(arg)
+console.log(temp)

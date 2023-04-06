@@ -1,0 +1,15 @@
+// closure 2
+const add = (function add() {
+  let counter = 0;
+  return function() {
+    counter += 1;
+    return counter
+  }
+})()
+
+add() // 1
+const x = add() // 2
+console.log(x) // 2
+add() // 3
+add() // 4
+console.log(add()) //5

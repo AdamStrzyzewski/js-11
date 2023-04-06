@@ -1,0 +1,14 @@
+// closure 1
+
+function init() {
+  const name = "Mozilla"
+  return function() {
+    console.log(name)
+  }
+}
+
+// displayName()
+const displayName = init()
+// console.log(displayName)
+
+displayName()
