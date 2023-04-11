@@ -1,0 +1,27 @@
+<html>
+  <head></head>
+  <body>
+    <p>1</p>
+    <p id="unique">2</p>
+    <p class="red">3</p>
+    <p class="red">4</p>
+    <script>
+      // querySelector
+      // querySelectorAll
+      const unique = document.querySelector('#unique');
+      unique.style.color = 'green';
+      const allRedParagraphs = document.querySelectorAll('.red');
+      console.log(document.querySelectorAll('p:nth-child(3)'));
+
+      allRedParagraphs.forEach((p) => {
+        console.log(p);
+        p.style.color = 'red';
+      });
+
+      console.log(document.querySelectorAll('div'));
+      console.log([...document.querySelectorAll('div')]);
+
+      console.log(document.querySelector('div'));
+    </script>
+  </body>
+</html>

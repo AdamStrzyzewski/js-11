@@ -1,0 +1,50 @@
+<html>
+  <head></head>
+  <body>
+    <!-- <p></p> -->
+    <!-- <h1></h1>
+    <section>
+      <h2>te<span>k</span>st</h2>
+    </section> -->
+    <ul>
+      <li>test</li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script>
+      'use strict';
+      //   console.log(window.document);
+      //   console.log(document);
+      const body = document.body;
+
+      console.log(body);
+
+      const ul = body.firstElementChild;
+      console.log(ul);
+
+      const firstUlItem = ul.firstElementChild;
+      console.log(firstUlItem);
+
+      const firstChildOfLi = firstUlItem.firstChild;
+      console.log(firstChildOfLi);
+
+      const firstChildElementOfLi = firstUlItem.firstElementChild;
+      console.log(firstChildElementOfLi);
+
+      //   parentNode
+      console.log('parentNode', firstUlItem.parentNode);
+      //   childNodes // pseudoarray
+      console.log('childNodes', [...ul.childNodes]);
+
+      //   children === childNodes without text nodes
+      // lastChild
+      console.log('lastChild', ul.lastChild);
+
+      // lastElementChild
+      console.log('lastElementChild', ul.lastElementChild);
+
+      console.log('previousElementSibling', firstUlItem.previousElementSibling);
+      console.log('nextElementSibling', firstUlItem.nextElementSibling);
+    </script>
+  </body>
+</html>

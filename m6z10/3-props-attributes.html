@@ -1,0 +1,100 @@
+<html>
+  <head></head>
+  <body>
+    <textarea id="message" class="materialize-textarea" rows="5">
+Default textarea message</textarea
+    >
+    <input id="username" value="treść inputa" />
+
+    <div>
+      <a href="/home" class="btn">home</a>
+      <a href="/about" class="btn active">about</a>
+      <a href="/gallery" class="btn">gallery</a>
+    </div>
+
+    <br />
+    <img
+      class="image"
+      src="https://placeimg.com/640/480/animals"
+      alt=""
+      width="320"
+    />
+
+    <p class="example" custom-attribute="test" data-test="15">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ea
+      voluptatibus nulla. Rem, voluptatem sequi? Ab nihil iusto a error
+      doloribus, blanditiis odio officiis quam maiores tenetur! Nulla, ex ea?
+    </p>
+
+    <script>
+      const message = document.querySelector('#message');
+      console.log(message.value); // string
+      const input = document.querySelector('#username');
+      console.log(input.value); // string
+      input.value = 'coś innego';
+
+      const activeLink = document.querySelector('.btn.active');
+      console.log(activeLink.href);
+
+      const image = document.querySelector('.image');
+      console.log(image.src); // string
+      image.src = './img.jpg';
+
+      const p = document.querySelector('.example');
+
+      console.log(p.textContent);
+      p.textContent = '<div></div>';
+
+      p.classList.add('class');
+      console.log(p.classList.contains('example'));
+      p.classList.remove('example');
+      console.log(p.classList.contains('example'));
+      p.classList.toggle('class');
+      p.classList.toggle('class');
+
+      p.classList.replace('class', 'classNew');
+      p.classList.replace('class', 'classNew2');
+
+      // el.replace("a","b")
+      // el.replace("b","a")
+      console.log(p.classList);
+
+      // background-color -> backgroundColor
+      p.style.backgroundColor = 'teal';
+      // font-size -> fontSize
+      p.style.fontSize = '24px';
+      // color -> color
+      p.style.color = 'red';
+      // text-align -> textAlign
+      p.style.textAlign = 'center';
+
+      const links = document.querySelectorAll('a');
+      console.log(links);
+      console.log(links.length);
+      console.log(links[2]);
+      for (let i = 0; i < links.length; i++) {
+        console.log(links[i]);
+      }
+
+      for (link of links) {
+        console.log(`link`, link);
+      }
+
+      console.log(p.hasAttribute('custom-attribute'));
+      console.log(p.getAttribute('custom-attribute')); // string
+      console.log(p.getAttribute('class')); // string
+      p.setAttribute('custom-attribute', 'new-value');
+      p.setAttribute('custom-attribute-2', 'new-value');
+      console.log(p.getAttribute('custom-attribute')); // string
+      p.removeAttribute('custom-attribute');
+      console.log(p.attributes);
+
+      // data-test
+      // elem.dataset.test
+      console.log(p.dataset.test);
+      p.dataset.test = '30';
+      console.log(p.dataset.test);
+      console.log(p.dataset);
+    </script>
+  </body>
+</html>

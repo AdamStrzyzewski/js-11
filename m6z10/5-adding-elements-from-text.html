@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+    <div id="test-paragraph">
+      <p>Jestem treścią</p>
+    </div>
+    <div id="container"></div>
+    <script>
+      'use strict';
+      const fromDb = `
+      <p style='color:red;'>Jestem paragrafem</p>
+      <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      </ul>
+      `;
+      const container = document.querySelector('#container');
+      container.innerHTML = fromDb;
+
+      let newHTML = '<ul>';
+      for (let i = 0; i < 10; i += 1) {
+        newHTML += `<li>jestem elementem nr ${i}</li>`;
+      }
+      newHTML += '</ul>';
+
+      container.innerHTML += newHTML;
+
+      // container.innerHTML = '';
+
+      const testParagraph = document.querySelector('#test-paragraph');
+      testParagraph.insertAdjacentHTML('afterbegin', '<p>afterbegin</p>');
+      testParagraph.insertAdjacentHTML('afterend', '<p>afterend</p>');
+      testParagraph.insertAdjacentHTML('beforebegin', '<p>beforebegin</p>');
+      testParagraph.insertAdjacentHTML('beforeend', '<p>beforeend</p>');
+    </script>
+  </body>
+</html>

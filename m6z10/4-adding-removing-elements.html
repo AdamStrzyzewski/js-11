@@ -1,0 +1,46 @@
+<html>
+  <head></head>
+  <body>
+    <p>Ja jestem z html</p>
+    <script>
+      'use strict';
+      // const el = document.createElement('ul');
+      // for (let i = 0; i < 100000; i += 1) {
+      //   const li = document.createElement('li');
+      //   li.textContent = `jestem elementem nr ${i}`;
+      //   el.append(li);
+      // }
+      // document.body.append(el);
+
+      // const el = document.createElement('ul');
+      // const arrayLi = [];
+      // for (let i = 0; i < 100; i += 1) {
+      //   const li = document.createElement('li');
+      //   li.textContent = `jestem elementem nr ${i}`;
+      //   arrayLi.push(li);
+      // }
+      // document.body.append(el);
+      // el.append(...arrayLi);
+
+      // const el = document.createElement('ul');
+      // for (let i = 0; i < 10; i += 1) {
+      //   const li = document.createElement('li');
+      //   li.textContent = `jestem elementem nr ${i}`;
+      //   el.prepend(li);
+      // }
+      // document.body.append(el);
+
+      const p = document.querySelector('p');
+
+      const after = document.createElement('p');
+      after.textContent = 'ja jestem po';
+      const before = document.createElement('p');
+      before.textContent = 'ja jestem przed';
+      p.after(after, 'test');
+      p.prepend(after);
+      p.before(before);
+      // before.remove();
+      // p.before(before);
+    </script>
+  </body>
+</html>
