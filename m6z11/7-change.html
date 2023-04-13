@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <p>Selected option text: <span class="text-output">none</span></p>
+
+    <p></p>
+    <p>Selected option value: <span class="value-output">none</span></p>
+
+    <p>
+      <select class="pizza-select">
+        <option value="four_meats">Four Meats</option>
+        <option value="royal_cheese">Royal Cheese</option>
+        <option value="vegetarian" selected>Vegetarian</option>
+        <option value="smoked_salmon">Smoked Salmon</option>
+      </select>
+    </p>
+
+    <script>
+      'use strict';
+
+      const select = document.querySelector('.pizza-select');
+      const textP = document.querySelector('.text-output');
+      const valueP = document.querySelector('.value-output');
+
+      setOutputs();
+
+      function setOutputs() {
+        valueP.textContent = select.value;
+        const indexOfSelectedOption = select.selectedIndex;
+        const selectedOption = select.options[indexOfSelectedOption];
+        textP.textContent = selectedOption.text;
+        // console.log(select.options);
+      }
+
+      select.addEventListener('change', setOutputs);
+
+      // answering a question
+      // select.options[0].setAttribute('selected', ''); // event does not trigger
+      // select.value = 'four_meats'; // event does not trigger
+      // select.dispatchEvent(new Event('change'));
+    </script>
+  </body>
+</html>

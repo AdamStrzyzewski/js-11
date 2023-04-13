@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <input id="input1" placeholder="input1" />
+    <p id="value"></p>
+    <script>
+      'use strict';
+      const i1 = document.querySelector('#input1');
+      const p = document.querySelector('#value');
+
+      i1.addEventListener('input', function () {
+        // console.log(this.value);
+        this.value = this.value.toUpperCase();
+        // p.textContent = this.value.toUpperCase();
+        if (this.value.length < 5) {
+          p.textContent = 'Password is not long enough';
+          p.style.backgroundColor = 'red'; // should be a class
+        } else {
+          p.textContent = 'Password is okay';
+          p.style.backgroundColor = 'green'; // should be a class
+        }
+      });
+
+      i1.dispatchEvent(new Event('input'));
+    </script>
+  </body>
+</html>

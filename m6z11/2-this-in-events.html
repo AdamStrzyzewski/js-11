@@ -1,0 +1,30 @@
+<html>
+  <head></head>
+  <body>
+    <button id="clickMe" type="button">click me</button>
+
+    <script>
+      'use strict';
+      const button = document.querySelector('#clickMe');
+
+      const mango = {
+        username: 'John',
+        showUsername() {
+          console.log(this);
+          console.log(`my username is: ${this.username}`);
+        },
+      };
+
+      button.addEventListener('click', () => {
+        console.log(`arrow`, this);
+      });
+
+      button.addEventListener('click', function () {
+        console.log(`classic`, this);
+      });
+
+      button.addEventListener('click', mango.showUsername);
+      button.addEventListener('click', mango.showUsername.bind(mango));
+    </script>
+  </body>
+</html>

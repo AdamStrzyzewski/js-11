@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <input id="input1" placeholder="input1" />
+    <input id="input2" placeholder="input2" />
+    <script>
+      'use strict';
+
+      const i1 = document.querySelector('#input1');
+      const i2 = document.querySelector('#input2');
+
+      function focus() {
+        this.value = 'focused';
+      }
+      function blur() {
+        this.value = 'blurred';
+      }
+      i1.addEventListener('focus', focus);
+      i2.addEventListener('focus', focus);
+      i1.addEventListener('blur', blur);
+      i2.addEventListener('blur', blur);
+
+      i2.focus();
+      i1.focus();
+      // i2.blur();
+    </script>
+  </body>
+</html>

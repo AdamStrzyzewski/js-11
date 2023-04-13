@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <style>
+      p {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      'use strict';
+      // keydown
+      // keyup
+      // console.log(navigator.userAgent);
+      // console.log(navigator.appVersion);
+      document.addEventListener('keydown', (event) => {
+        // event.preventDefault(); // blocks all shortcuts
+        if ((event.ctrlKey || event.metaKey) && event.code === 'KeyS') {
+          event.preventDefault(); // blocks only this shortcut
+          console.log('saving file....');
+        }
+      });
+    </script>
+  </body>
+</html>

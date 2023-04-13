@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+    <button id="clickMe" type="button">wylosuj liczbe</button>
+    <div id="randomNumberContainer"></div>
+    <script>
+      'use strict';
+
+      const button = document.querySelector('#clickMe');
+      const container = document.querySelector('#randomNumberContainer');
+
+      const clickButton = () => {
+        // this happens once
+        container.innerHTML += `${Math.random()}<br/>`;
+        button.removeEventListener('click', clickButton);
+      };
+
+      const clickButton2 = () => {
+        console.log(Math.random());
+      };
+
+      button.addEventListener('click', clickButton);
+      // third arguments object options
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+      button.addEventListener('click', clickButton2, { once: true });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+    <form id="test-form">
+      <input id="input1" name="input1" />
+      <input id="input2" name="input2" />
+      <button>Send</button>
+    </form>
+
+    <div id="container"></div>
+
+    <script>
+      'use strict';
+      const form = document.querySelector('#test-form');
+      const container = document.querySelector('#container');
+      const input1 = document.querySelector('[name="input1"]');
+      const input2 = document.querySelector('#input2');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (input1.value && input2.value) {
+          input1.value = input1.value.toUpperCase();
+          container.innerHTML = `<p>${input1.value} - ${input2.value}</p>${container.innerHTML}`;
+          input1.value = '';
+          input2.value = '';
+        } else {
+          alert('you need to fill both fields');
+        }
+      });
+    </script>
+  </body>
+</html>

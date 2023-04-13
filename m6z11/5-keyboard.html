@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <style>
+      p {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      'use strict';
+      // keydown
+      // keyup
+      const container = document.querySelector('#container');
+
+      let previousCode = '';
+
+      document.addEventListener('keydown', (event) => {
+        if (previousCode === event.code) {
+          return false;
+        }
+        previousCode = event.code;
+        const string = `key: ${event.key}, code: ${event.code}, ctrl: ${
+          event.ctrlKey || event.metaKey
+        }, shift: ${event.shiftKey}, alt: ${event.altKey}`;
+        const p = document.createElement('p');
+        if (event.code === 'KeyF') {
+          p.style.backgroundColor = 'red';
+        }
+        p.textContent = string;
+        container.prepend(p);
+      });
+    </script>
+  </body>
+</html>
