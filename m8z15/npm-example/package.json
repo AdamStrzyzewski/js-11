@@ -1,0 +1,29 @@
+{
+  "name": "npm-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "2-node-package.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam S",
+  "license": "ISC",
+  "dependencies": {
+    "is-odd": "^3.0.1"
+  },
+  "contributors": [
+    {
+      "name": "Barney Rubble",
+      "email": "b@rubble.com",
+      "url": "http://barnyrubble.tumblr.com/"
+    },
+    {
+      "name": "Newton Bubble",
+      "email": "n@bubble.com",
+      "url": "http://newtonbubble.tumblr.com/"
+    }
+  ],
+  "devDependencies": {
+    "is-even": "^1.0.0"
+  }
+}
