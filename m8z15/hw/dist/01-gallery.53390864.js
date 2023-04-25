@@ -504,15 +504,17 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"6XVkV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _simplelightbox = require("simplelightbox");
-var _simplelightboxDefault = parcelHelpers.interopDefault(_simplelightbox);
 // Add imports above this line
 var _galleryItems = require("./gallery-items");
-console.log((0, _simplelightboxDefault.default));
 // Change code below this line
+// Opisany w dokumentacji
+var _simplelightbox = require("simplelightbox");
+var _simplelightboxDefault = parcelHelpers.interopDefault(_simplelightbox);
+// Dodatkowy import stylów
+var _simpleLightboxMinCss = require("simplelightbox/dist/simple-lightbox.min.css");
 console.log((0, _galleryItems.galleryItems));
 
-},{"./gallery-items":"9C7dK","simplelightbox":"9ydBq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9C7dK":[function(require,module,exports) {
+},{"./gallery-items":"9C7dK","simplelightbox":"9ydBq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","simplelightbox/dist/simple-lightbox.min.css":"kaxSc"}],"9C7dK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "galleryItems", ()=>galleryItems);
@@ -2079,6 +2081,6 @@ var _default = SimpleLightbox;
 exports["default"] = _default;
 global.SimpleLightbox = SimpleLightbox;
 
-},{}]},["8EXaa","6XVkV"], "6XVkV", "parcelRequired7c6")
+},{}],"kaxSc":[function() {},{}]},["8EXaa","6XVkV"], "6XVkV", "parcelRequired7c6")
 
 //# sourceMappingURL=01-gallery.53390864.js.map
