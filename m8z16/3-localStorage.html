@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // sessionStorage
+      localStorage.setItem('key', 'value');
+      localStorage.setItem('key2', '{"te}');
+      localStorage.setItem('key3', 'value3');
+
+      localStorage.removeItem('key');
+
+      console.log(localStorage.length);
+
+      console.log('key3 => ', localStorage.getItem('key3'));
+      console.log(Object.keys(localStorage));
+      // localStorage.clear();
+
+      const settings = {
+        theme: 'dark',
+        isAuthenticated: true,
+        options: [1, 2, 3],
+      };
+
+      localStorage.setItem('settings', JSON.stringify(settings));
+
+      console.log(JSON.parse(localStorage.getItem('settings')));
+
+      const saveObjToLocalStorage = (key, value) => {
+        try {
+          const serializedValue = JSON.stringify(value);
+          localStorage.setItem(key, serializedValue);
+        } catch (e) {
+          alert(`There was a mistake ${e.toString()}`);
+        }
+      };
+
+      const loadObjFromLocalStorage = (key) => {
+        try {
+          const parsedObj = JSON.parse(localStorage.getItem(key));
+          return parsedObj;
+        } catch (e) {
+          alert(`There was a mistake ${e.toString()}`);
+        }
+      };
+
+      saveObjToLocalStorage('objKey', { test: 214 });
+      saveObjToLocalStorage('objKey2', true);
+      console.log(loadObjFromLocalStorage('key2'));
+    </script>
+  </head>
+  <body></body>
+</html>

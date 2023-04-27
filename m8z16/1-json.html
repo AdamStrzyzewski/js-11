@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const x = {
+        key: 'value',
+        number: 5,
+        numberAsString: '5',
+        array: [1, 2, 3],
+        nestedObj: {
+          test: 10,
+          testArr: ['a', 'b', 'c'],
+        },
+      };
+
+      // string JSON -> JS object
+      // JSON.parse(stringJSON)
+      // JS object -> string JSON
+      // JSON.stringify(objectJS)
+      //   console.log(x, typeof x);
+      const json = JSON.stringify(x);
+      //   console.log(json, typeof json);
+
+      const reparsed = JSON.parse(json);
+      //   console.log(reparsed, typeof reparsed);
+      //   console.log(reparsed.key);
+
+      // -----
+      // this catches runtime errors
+      try {
+        const stringFromServer = '<html><head></head></html>';
+        const stringFromServer2 = `{'test': 250}`; // error due to '
+        const objFromString = JSON.parse(stringFromServer); // this throws error
+        console.log('33'); // this never triggers
+        const objFromString2 = JSON.parse(stringFromServer2);
+      } catch (e) {
+        console.log('error', e.toString());
+      }
+
+      // cost x = 43 // evaluation error
+    </script>
+  </head>
+  <body></body>
+</html>

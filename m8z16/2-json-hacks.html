@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // DATE edgecase
+      // const obj = {
+      //   date: new Date(2023, 1, 1),
+      // };
+
+      // const json = JSON.stringify(obj);
+      // console.log(json);
+      // const reparsed = JSON.parse(json);
+      // console.log(
+      //   reparsed.date,
+      //   typeof reparsed.date, // string
+      //   reparsed.date instanceof Date // false
+      // );
+      // console.log(
+      //   obj.date,
+      //   typeof obj.date, // object
+      //   obj.date instanceof Date // true
+      // );
+
+      // methods, classes, function do not appear in JSON
+      const obj = {
+        bar: 1,
+        foo() {
+          console.log('woof');
+        },
+        baz: function () {
+          console.log('test');
+        },
+      };
+
+      console.log(JSON.stringify(obj));
+    </script>
+  </head>
+  <body></body>
+</html>
