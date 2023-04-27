@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div"></div>
+    <script>
+      const parent = document.querySelector('#div');
+      parent.append('<p>Test</p>', 'test2');
+      const p = document.createElement('p');
+      const p2 = document.createElement('p');
+      p.innerHTML = 'test3';
+      p2.innerHTML = 'test4';
+      parent.append(p, p2);
+
+      // parent.appendChild('<p>Test</p>');
+      parent.appendChild(p);
+    </script>
+  </body>
+</html>
