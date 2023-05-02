@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date</title>
+    <script>
+      // moment.js - better alternative
+
+      const date = new Date();
+      console.log('1-', date);
+      console.log('2-', date.toString());
+      console.log('3-', date.getTime()); // timestamp, unix timestamp
+
+      const date2 = new Date('1970-01-1');
+      console.log('4-', date2.getTime());
+
+      const date3 = new Date('2-5-2020');
+      console.log('5-', date3);
+      const date4 = new Date('14-05-2020');
+      console.log('6-', date4); // invalid
+
+      const date5 = new Date('03/16/2030');
+      console.log('7-', date5);
+
+      const date6 = new Date('2022-05-02');
+      console.log('8-', date6);
+
+      // year
+      // month 0-11
+      // day
+      // hour
+      // minute
+      // second
+      // millisecond
+      const date7 = new Date(2023, 5, 11, 23, 43, 10, 650);
+      console.log('9-', date7);
+      console.log('-------');
+      // day 1-31
+      console.log('getDate()', date7.getDate());
+      // weekday 0-6 (sunday - saturday)
+      console.log('getDay()', date7.getDay());
+      // get month 0-11
+      console.log('getMonth()', date7.getMonth());
+
+      // Zwraca rok z 4 cyfr
+      console.log('getFullYear(): ', date7.getFullYear());
+
+      // Zwraca godzinę
+      console.log('getHours(): ', date7.getHours());
+
+      // Zwraca minuty
+      console.log('getMinutes(): ', date7.getMinutes());
+
+      // Zwraca sekundy
+      console.log('getSeconds(): ', date7.getSeconds());
+
+      // Zwraca milisekundy
+      console.log('getMilliseconds(): ', date7.getMilliseconds());
+
+      console.log('-----UTC------');
+      // Zwraca dzień miesiąca od 1 do 31
+      console.log('getUTCDate(): ', date7.getUTCDate());
+
+      // Zwraca dzień tygodnia od 0 do 6
+      console.log('getUTCDay(): ', date7.getUTCDay());
+
+      // Zwraca miesiąc od 0 do 11
+      console.log('getUTCMonth(): ', date7.getUTCMonth());
+
+      // Zwraca rok z 4 cyfr
+      console.log('getUTCFullYear(): ', date7.getUTCFullYear());
+
+      // Zwraca godzinę
+      console.log('getUTCHours(): ', date7.getUTCHours());
+
+      // Zwraca minuty
+      console.log('getUTCMinutes(): ', date7.getUTCMinutes());
+
+      // Zwraca sekundy
+      console.log('getUTCSeconds(): ', date7.getUTCSeconds());
+
+      // Zwraca milisekundy
+      console.log('getUTCMilliseconds(): ', date7.getUTCMilliseconds());
+
+      console.log('it is now', new Date().getHours());
+      console.log('it is now (UTC)', new Date().getUTCHours());
+
+      const date8 = new Date();
+      console.log('-----');
+      date8.setUTCHours(10);
+      console.log(date8.toUTCString());
+      console.log(date8.toString());
+
+      console.log(`${date8.getUTCFullYear()}-${date8.getUTCMonth() + 1}`);
+      console.log(date.toString());
+      // "Sat Mar 16 2030 14:25:00 GMT+0200 (Eastern European Standard Time)"
+
+      console.log(date.toTimeString());
+      // "14:25:00 GMT+0200 (Eastern European Standard Time)"
+
+      console.log(date.toLocaleTimeString());
+      // "2:25:00 PM"
+
+      console.log(date.toUTCString());
+      // "Sat, 16 Mar 2030 12:25:00 GMT"
+
+      console.log(date.toDateString());
+      // "Sat Mar 16 2030"
+
+      console.log(date.toISOString());
+      // "2030-03-16T12:25:00.000Z"
+
+      console.log(date.toLocaleString());
+      // "3/16/2030, 2:25:00 PM"
+
+      console.log(date.getTime());
+      // 1899894300000
+    </script>
+  </head>
+  <body></body>
+</html>

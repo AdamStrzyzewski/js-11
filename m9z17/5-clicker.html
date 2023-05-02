@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clicker</title>
+    <script src="./toastify.js"></script>
+    <style>
+      .toastify {
+        padding: 12px 20px;
+        color: #ffffff;
+        display: inline-block;
+        box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12),
+          0 10px 36px -4px rgba(77, 96, 232, 0.3);
+        background: #aa0000;
+        position: fixed;
+        top: -150px;
+        right: 15px;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      .toastify.info {
+        background: linear-gradient(135deg, #73a5ff, #5477f5);
+      }
+      .toastify.on {
+        opacity: 1;
+      }
+      * {
+        font-size: 16px;
+      }
+      body {
+        background-color: #3b3756;
+        color: #f1f272;
+      }
+      input {
+        border: none;
+        color: white;
+        background-color: #66608d;
+      }
+
+      input[readonly] {
+        background-color: #3b3756;
+        display: block;
+      }
+
+      input[readonly]:focus {
+        border: none;
+        outline: none;
+      }
+      .flex-row {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: flex-start;
+      }
+
+      button {
+        outline: none;
+        background-color: black;
+        border: 1px solid #f1f272;
+        color: #f1f272;
+        border-radius: 2px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: 0.5;
+      }
+
+      .buildings {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .buildings-group {
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        align-items: flex-start;
+      }
+      .building {
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 5px;
+        gap: 10px;
+      }
+
+      .building.mine {
+        background-image: url('./mine.png');
+      }
+      .building.sawmill {
+        background-image: url('./sawmill.png');
+      }
+    </style>
+    <script>
+      const TICK_INTERVAL = 100;
+      const SAVE_INTERVAL = 10 * 1000;
+
+      const COSTS = {
+        mine: 10,
+        sawmill: 20,
+      };
+
+      let gameStatus = {
+        resources: {
+          wood: 0,
+          metal: 0,
+          gold: 0,
+        },
+        buildings: {
+          mine: { resource: 'metal', increment: 0.1, count: 0 },
+          sawmill: { resource: 'wood', increment: 0.1, count: 0 },
+        },
+        baselineResourceGrowth: {
+          wood: 0.5,
+          metal: 0.5,
+          gold: 0,
+        },
+        baselineClickGrowth: {
+          wood: 10,
+          metal: 15,
+          gold: 100,
+        },
+      };
+
+      let resourceCounters;
+      let buildings;
+
+      function saveGame() {
+        gameStatus.timestamp = new Date().getTime();
+        localStorage.setItem('save', JSON.stringify(gameStatus));
+        infoToast('Game Saved!');
+      }
+
+      function loadGame() {
+        const save = localStorage.getItem('save');
+        if (save) {
+          gameStatus = JSON.parse(save);
+          const preCatchup = { ...gameStatus.resources };
+          if (gameStatus.timestamp) {
+            const missedTicks = Math.floor(
+              (new Date().getTime() - gameStatus.timestamp) / TICK_INTERVAL
+            );
+
+            for (let i = 0; i < missedTicks; i += 1) {
+              gameTick();
+            }
+
+            infoToast(`You have been gone for ${missedTicks} ticks`, 1500);
+            Object.keys(preCatchup).forEach((rKey) => {
+              infoToast(
+                `You've made ${Math.ceil(
+                  gameStatus.resources[rKey] - preCatchup[rKey]
+                )} ${rKey}, since you've been gone`,
+                2000
+              );
+            });
+            saveGame();
+          }
+        }
+      }
+
+      function addResources() {
+        Object.values(gameStatus.buildings).forEach((b) => {
+          gameStatus.resources[b.resource] += b.increment * b.count;
+        });
+        Object.entries(gameStatus.baselineResourceGrowth).forEach(
+          ([resourceKey, resourceGrowthValue]) => {
+            gameStatus.resources[resourceKey] += resourceGrowthValue;
+          }
+        );
+      }
+
+      function refreshCounters() {
+        Object.entries(gameStatus.resources).forEach(
+          ([resourceKey, resourceValue]) => {
+            resourceCounters[resourceKey].value = Math.floor(resourceValue);
+          }
+        );
+      }
+
+      function generateBuilding(buildingName) {
+        const elem = document.createElement('div');
+        elem.classList.add('building', buildingName);
+        return elem;
+      }
+      function drawBuildings() {
+        Object.keys(buildings).forEach((bKey) => {
+          const parentElement = buildings[bKey];
+          const toRender =
+            gameStatus.buildings[bKey].count - parentElement.children.length;
+
+          if (!toRender) {
+            return;
+          }
+
+          const elements = [];
+          for (let i = 0; i < toRender; i += 1) {
+            elements.push(generateBuilding(bKey));
+          }
+          parentElement.append(...elements);
+        });
+      }
+
+      function gameTick() {
+        addResources();
+        refreshCounters();
+        drawBuildings();
+      }
+
+      function mineResource() {
+        const { resourceName } = this.dataset;
+        gameStatus.resources[resourceName] +=
+          gameStatus.baselineClickGrowth[resourceName];
+      }
+
+      function errorToast(msg, duration = 1000) {
+        Toastify({
+          text: msg,
+          duration: 1000,
+        }).showToast();
+      }
+      function infoToast(msg, duration = 1000) {
+        Toastify({
+          text: msg,
+          className: 'info',
+          duration,
+        }).showToast();
+      }
+
+      function buyBuilding() {
+        const { buildingName } = this.dataset;
+        const cost = COSTS[buildingName];
+        const diff = gameStatus.resources.gold - cost;
+        if (diff < 0) {
+          errorToast(`You are short ${Math.abs(diff)} gold`);
+          return;
+        }
+        gameStatus.buildings[buildingName].count += 1;
+        gameStatus.resources.gold -= cost;
+      }
+
+      let gameInterval;
+      let saveInterval;
+
+      function startIntervals() {
+        if (!gameInterval) {
+          gameInterval = setInterval(gameTick, TICK_INTERVAL);
+        }
+        if (!saveInterval) {
+          saveInterval = setInterval(saveGame, SAVE_INTERVAL);
+        }
+      }
+      function stopIntervals() {
+        clearInterval(gameInterval);
+        gameInterval = null;
+        clearInterval(saveInterval);
+        saveInterval = null;
+      }
+
+      window.addEventListener('load', () => {
+        // UI AND HANDLERS
+        resourceCounters = {
+          metal: document.querySelector('#metalCounter'),
+          wood: document.querySelector('#woodCounter'),
+          gold: document.querySelector('#goldCounter'),
+        };
+
+        buildings = {
+          mine: document.querySelector('#mines'),
+          sawmill: document.querySelector('#sawmills'),
+        };
+
+        const buyButtons = document.querySelectorAll('.buy');
+        const mineButtons = document.querySelectorAll('.mine');
+        const saveButton = document.querySelector('#save');
+        const stopButton = document.querySelector('#stop');
+        const startButton = document.querySelector('#start');
+
+        mineButtons.forEach((btn) => {
+          btn.addEventListener('click', mineResource);
+        });
+
+        buyButtons.forEach((btn) => {
+          btn.addEventListener('click', buyBuilding);
+        });
+
+        loadGame();
+        startIntervals();
+        saveButton.addEventListener('click', saveGame);
+        stopButton.addEventListener('click', stopIntervals);
+        startButton.addEventListener('click', startIntervals);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="counters" name="">
+        <div class="flex-row">
+          <label>
+            <span>Metal:</span>
+            <input id="metalCounter" name="metal" type="number" readonly />
+          </label>
+          <label>
+            <span>Wood:</span>
+            <input id="woodCounter" name="wood" type="number" readonly />
+          </label>
+          <label>
+            <span>Gold:</span>
+            <input id="goldCounter" name="gold" type="number" readonly />
+          </label>
+        </div>
+        <div class="flex-row">
+          <button type="button" class="buy" data-building-name="mine">
+            Mine +1
+          </button>
+          <button type="button" class="buy" data-building-name="sawmill">
+            Sawmill +1
+          </button>
+          <button type="button" class="mine" data-resource-name="gold">
+            Mine Gold
+          </button>
+          <button type="button" class="mine" data-resource-name="metal">
+            Mine Metal
+          </button>
+          <button type="button" id="save">Save</button>
+          <button type="button" id="stop">⏸️</button>
+          <button type="button" id="start">▶️</button>
+        </div>
+      </form>
+      <div class="buildings">
+        <div class="buildings-group" id="mines"></div>
+        <div class="buildings-group" id="sawmills"></div>
+      </div>
+    </div>
+  </body>
+</html>

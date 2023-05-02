@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timeout</title>
+    <script>
+      const timeoutFunction = (a, b) => {
+        console.log('hello', a, b);
+      };
+
+      console.log('pre-timeout');
+      const timeout = setTimeout(timeoutFunction, 0, 15, 23);
+      const timeout2 = setTimeout(timeoutFunction, 1000, 100, 150);
+      clearTimeout(timeout2);
+      console.log('post-timeout');
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>interval</title>
+    <script>
+      const logNumber = (label, n = 5) => {
+        console.log(label, Math.floor(Math.random() * n));
+      };
+      const gameTick = setInterval(logNumber, 500, 'first');
+      // setInterval(callback fn, delay in ms, ...arg)
+      const gameTick2 = setInterval(logNumber, 300, 'second', 10);
+
+      setTimeout(() => {
+        clearInterval(gameTick2);
+      }, 2000);
+    </script>
+  </head>
+  <body></body>
+</html>

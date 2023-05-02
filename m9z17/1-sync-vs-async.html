@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sync vs async</title>
+    <script>
+      // async
+      setTimeout(() => {
+        console.log('post-timeout-1');
+      }, 2000);
+      // sync
+      console.log('pre-loop');
+      for (let i = 0; i < 10000; i += 1) {
+        if (i === 9999) {
+          console.log('end of loop');
+        }
+      }
+      console.log('post-loop');
+      setTimeout(() => {
+        console.log('post-timeout-2');
+      }, 2000);
+    </script>
+  </head>
+  <body></body>
+</html>
