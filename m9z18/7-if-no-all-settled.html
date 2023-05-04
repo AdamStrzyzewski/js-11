@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const wait = (fn, delay) =>
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (Math.random() > 0.5) {
+              resolve(fn());
+            } else {
+              reject('I got broken');
+              // resolve({ error: true, reason: 'just because' }); // idea one
+            }
+          }, delay);
+        });
+
+      const promiseArr = [];
+
+      const waitHandled = (fn) =>
+        new Promise((resolve) => {
+          fn.then((data) => {
+            resolve({ value: data, status: 'fulfilled' });
+          }).catch((err) => {
+            resolve({ error: true, reason: err });
+          });
+        });
+
+      for (let i = 0; i < 100; i += 1) {
+        const delay = Math.floor(Math.random() * 10) * 1000;
+        promiseArr.push(
+          waitHandled(
+            wait(() => {
+              return `delay: ${delay / 1000}s, i: ${i}`;
+            }, delay)
+          )
+        );
+      }
+
+      Promise.all(promiseArr)
+        .then((results) => {
+          console.log(results);
+        })
+        .catch((err) => {
+          // even if there was a single error
+          console.log(err);
+        });
+    </script>
+  </head>
+  <body></body>
+</html>

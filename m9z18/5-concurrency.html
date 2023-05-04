@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const wait = (fn, delay) =>
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (Math.random() > 0.5) {
+              resolve(fn());
+            } else {
+              reject('I got broken');
+            }
+          }, delay);
+        });
+
+      // wait(() => {
+      //   return 'test po 2s';
+      // }, 2000).then((data) => {
+      //   console.log(data);
+      // });
+
+      const promiseArr = [];
+
+      for (let i = 0; i < 100; i += 1) {
+        const delay = Math.floor(Math.random() * 10) * 1000;
+        promiseArr.push(
+          wait(() => {
+            return `delay: ${delay / 1000}s, i: ${i}`;
+          }, delay)
+        );
+      }
+      promiseArr.push(
+        new Promise((resolve, reject) => {
+          reject('I was broken');
+        })
+      );
+
+      Promise.all(promiseArr)
+        .then((results) => {
+          console.log(results);
+        })
+        .catch((err) => {
+          // even if there was a single error
+          console.log(err);
+        });
+
+      Promise.allSettled(promiseArr).then((results) => {
+        const rejected = results.reduce(
+          (acc, el) => acc + (el.status === 'fulfilled' ? 0 : 1),
+          0
+        );
+        console.log(`Rejected: ${rejected}`);
+        console.log(`Fullfilled: ${results.length - rejected}`);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

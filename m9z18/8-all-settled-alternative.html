@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const wait = (fn, delay) =>
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (Math.random() > 0.5) {
+              resolve(fn());
+            } else {
+              reject('I got broken');
+              // resolve({ error: true, reason: 'just because' }); // idea one
+            }
+          }, delay);
+        });
+
+      const promiseArr = [];
+
+      for (let i = 0; i < 100; i += 1) {
+        const delay = Math.floor(Math.random() * 10) * 1000;
+        promiseArr.push(
+          wait(() => {
+            return `delay: ${delay / 1000}s, i: ${i}`;
+          }, delay)
+        );
+      }
+
+      const allSettled = (promisesArr) =>
+        Promise.all(
+          promisesArr.map(
+            (promise) =>
+              new Promise((resolve) => {
+                promise
+                  .then((data) => {
+                    resolve({ result: data });
+                  })
+                  .catch((err) => {
+                    resolve({ error: err });
+                  });
+              })
+          )
+        );
+
+      // console.log(allSettled(promiseArr));
+      allSettled(promiseArr).then((results) => {
+        console.log(results);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

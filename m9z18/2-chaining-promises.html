@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const promise = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(5);
+        }, 2000);
+      });
+
+      promise
+        .then((data) => {
+          // result of original promise
+          console.log('then 1 - ', data); // 5
+          return data * 10;
+        })
+        .then((data) => {
+          // result of the chained then
+          console.log('then 2 - ', data); // 5 * 10 = 50
+          return data * 20;
+        })
+        .then((data) => {
+          // result of the chained then
+          console.log('then 3 - ', data); // 50 * 20 = 1000
+        })
+        .then((data) => {
+          console.log('then 4 - ', data); // undefined (because top handler doesnt have a return statement)
+        });
+    </script>
+  </head>
+  <body></body>
+</html>

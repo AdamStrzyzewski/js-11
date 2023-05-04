@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (Math.random() > 0.5) {
+            resolve('Zakończyłem się sukcesem');
+          } else {
+            reject({ error: true, code: 34123 });
+          }
+        }, 2000);
+      });
+
+      const resolveHandler = (result) => {
+        console.log('Success', result);
+      };
+
+      const rejectHandler = (error) => {
+        console.log('Error', error);
+      };
+
+      const finallyHandler = (result) => {
+        console.log('finally handler');
+        console.log({ result }); // undefined
+      };
+
+      // rarely used
+      // promise.then(resolveHandler, rejectHandler);
+
+      console.log(promise);
+      promise.then(resolveHandler).catch(rejectHandler).finally(finallyHandler);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const greetGuest = (guestName) => {
+        // return new Promise((resolve, reject) => {
+        //   if (guestName) {
+        //     reject('Guest name must not be empty');
+        //   }
+        //   resolve(`Welcome ${guestName}`);
+        // });
+        if (!guestName) {
+          // return new Promise((resolve, reject) => {
+          //   reject('Guest name must not be empty');
+          // });
+          return Promise.reject('Guest name must not be empty');
+        }
+        // return new Promise((resolve, reject) => {
+        //   resolve(`Welcome ${guestName}`);
+        // });
+        return Promise.resolve(`Welcome ${guestName}`);
+      };
+      greetGuest('Adam')
+        .then((msg) => {
+          console.log(msg);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      greetGuest('')
+        .then((msg) => {
+          console.log(msg);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </head>
+  <body></body>
+</html>
