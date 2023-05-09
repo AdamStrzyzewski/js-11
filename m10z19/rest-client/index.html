@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api</title>
+    <script src="./toastify.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      const POSTS_PATH = 'https://jsonplaceholder.typicode.com/posts';
+      let postsTable;
+      let filterForm;
+      let loadIcon;
+
+      const errorToast = (msg) =>
+        Toastify({
+          text: msg,
+          duration: 1000,
+        }).showToast();
+
+      function showLoader() {
+        loadIcon.classList.add('visible');
+      }
+      function hideLoader() {
+        loadIcon.classList.remove('visible');
+      }
+
+      function pingUrl(url, query) {
+        return new Promise((resolve, reject) => {
+          const querystring = new URLSearchParams(query);
+          console.log(`${querystring}`);
+          fetch(`${url}?${querystring}`)
+            .then((response) => {
+              if (!response.ok) {
+                reject(`Error code ${response.status}`);
+              } else {
+                return response.json();
+              }
+            })
+            .then((data) => {
+              resolve(data);
+            })
+            .catch((err) => reject(err));
+        });
+      }
+
+      function createHeader(obj) {
+        const row = document.createElement('tr');
+        row.insertAdjacentHTML(
+          'beforeend',
+          Object.keys(obj)
+            .map((key) => `<th>${key}</th>`)
+            .join('')
+        );
+
+        return row;
+      }
+
+      function createRow(post) {
+        const row = document.createElement('tr');
+
+        row.insertAdjacentHTML(
+          'beforeend',
+          Object.values(post)
+            .map((value) => `<td>${value}</td>`)
+            .join('')
+        );
+        return row;
+      }
+
+      function createNoRowsMessage() {
+        const msg = document.createElement('h2');
+        msg.classList.add('no-result');
+        msg.innerText = "No results found :'(";
+        return msg;
+      }
+
+      function drawResults(posts) {
+        postsTable.innerHTML = '';
+
+        if (!posts.length) {
+          // message about no data
+          postsTable.append(createNoRowsMessage());
+          return;
+        }
+
+        const headerRow = createHeader(posts[0]);
+        postsTable.append(headerRow);
+        const rows = [];
+        posts.forEach((post) => {
+          rows.push(createRow(post));
+        });
+        postsTable.append(...rows);
+      }
+
+      function handleFilterForm(e) {
+        e.preventDefault();
+
+        showLoader();
+        const filter = {};
+        if (this.userId.value !== '') {
+          filter.userId = this.userId.value;
+        }
+
+        pingUrl(POSTS_PATH, filter)
+          .then((data) => {
+            drawResults(data);
+          })
+          .catch((err) => {
+            errorToast(err.toString());
+          });
+        hideLoader();
+      }
+
+      window.addEventListener('load', function () {
+        postsTable = document.querySelector('#posts');
+        filterForm = document.querySelector('#filterForm');
+        loadIcon = document.querySelector('#loadIcon');
+
+        filterForm.addEventListener('submit', handleFilterForm);
+        filterForm.dispatchEvent(new Event('submit'));
+      });
+    </script>
+  </head>
+  <body>
+    <form id="filterForm">
+      <input id="userIdInput" name="userId" placeholder="user id" />
+      <button>Search</button>
+    </form>
+    <div id="loadIcon" class="load-icon"></div>
+    <table id="posts"></table>
+  </body>
+</html>
