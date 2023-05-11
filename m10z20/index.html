@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api</title>
+    <script src="./toastify.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./helpers/fetch.js"></script>
+    <script src="./helpers/ui.js"></script>
+    <script src="./helpers/toast.js"></script>
+    <script src="./helpers/handlers.js"></script>
+
+    <script>
+      let productsTable;
+      let loadIcon;
+      let pages;
+      let limitForm;
+
+      window.addEventListener('load', function () {
+        productsTable = document.querySelector('#products');
+        pages = document.querySelector('#pages');
+        loadIcon = document.querySelector('#loadIcon');
+        limitForm = document.querySelector('#limitForm');
+
+        loadProducts();
+
+        limitForm.addEventListener('submit', changeLimit);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="loadIcon" class="load-icon"></div>
+    <table id="products"></table>
+    <div id="pages"></div>
+    <form name="limitForm" id="limitForm">
+      <input name="limit" value="5" />
+    </form>
+  </body>
+</html>
