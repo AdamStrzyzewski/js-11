@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-size: 16px;
+    }
+  </style>
+
+  <body>
+    <form name="drink" id="drinkForm">
+      <input
+        id="drinkName"
+        name="drinkName"
+        value="old"
+        placeholder="drink-name"
+      />
+    </form>
+    <div id="drinks"></div>
+
+    <script>
+      'use strict';
+      // y = 15;
+      //   function getUrlClassic(drinkName) {
+      //     // console.log('classic', this);
+      //     return `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
+      //   }
+
+      // jawny zwrot (explicit return)
+      //   const getUrlArrowExplicit = (drinkName) => {
+      //     // console.log('arrow', this);
+      //     return `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
+      //   };
+
+      // niejawny zwrot (implicit return)
+      const getUrlArrowImplicit = (drinkName) =>
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
+
+      const POSSIBLE_INGREDIENTS_AMOUNT = 15;
+
+      const form = document.querySelector('#drinkForm');
+      const drinkRecipes = document.querySelector('#drinks');
+
+      function formHandler(e) {
+        e.preventDefault();
+        const res = fetch(getUrlArrowImplicit(form.drinkName.value));
+        console.log(res);
+        res
+          .then((data) => {
+            // data.ok === false =>
+            // !data.ok === true
+            if (!data.ok) {
+              console.log('API error', data.status);
+            } else {
+              data.json().then(({ drinks }) => {
+                drinkRecipes.innerHTML = '';
+                drinks.forEach((drink, drinkIndex, drinks) => {
+                  const ingredientsList = [];
+
+                  for (let i = 1; i <= POSSIBLE_INGREDIENTS_AMOUNT; i += 1) {
+                    const ingredient = drink[`strIngredient${i}`];
+                    const measure = drink[`strMeasure${i}`];
+
+                    if (ingredient || measure) {
+                      ingredientsList.push(
+                        `${measure || ''} ${ingredient || ''}`
+                      );
+                    }
+                  }
+
+                  const instructionSteps = drink.strInstructions // string
+                    .split('. ') // array of string
+                    .map((el) => `<li>${el}</li>`) // array of strings (modified)
+                    .join(''); // string (html)
+
+                  drinkRecipes.insertAdjacentHTML(
+                    'beforeEnd',
+                    `
+                 <div>
+                    <h2>${drink.strDrink}</h2>
+                    <h3>Ingredients</h3>
+                    <ul>
+                        ${ingredientsList
+                          .map((el) => `<li>${el}</li>`)
+                          .join('')}
+                    </ul>
+                    <h3>Recipe</h3>
+                    <ol>
+                       ${instructionSteps}
+                    </ol>
+                    <img width="150" src="${
+                      drink.strDrinkThumb
+                    }" alt="image of a ${drink.strDrinkThumb}" />
+                 </div>
+                `
+                  );
+                });
+              });
+            }
+          })
+          .catch((err) => {
+            console.log('error in catch', err.toString());
+          });
+      }
+
+      form.addEventListener('submit', formHandler);
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
+
+      //   function fn(condition) {
+      //     return new Promise((resolve, reject) => {
+      //       if (condition) {
+      //         resolve(true);
+      //       } else {
+      //         reject(false);
+      //       }
+      //     });
+      //   }
+      //   fn(false)
+      //     .then((d) => {
+      //       console.log('data', d);
+      //     })
+      //     .catch((err) => {
+      //       console.log('err', err); // this happens
+      //     });
+      // fetch() => promise
+      // success (resolve) => then(data)
+      // error (reject) => catch(err)
+      // finally => happens after either
+      //   fetch().then().catch().finally();
+    </script>
+  </body>
+</html>
