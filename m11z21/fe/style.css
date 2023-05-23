@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.toastify {
+  padding: 12px 20px;
+  color: #ffffff;
+  display: inline-block; 
+  box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12),
+    0 10px 36px -4px rgba(77, 96, 232, 0.3);
+  background: #aa0000;
+  position: fixed;
+  top: -150px;
+  right: 15px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 2px;
+  cursor: pointer;
+  z-index:150;
+}
+.toastify.info {
+  background: linear-gradient(135deg, #73a5ff, #5477f5);
+}
+.toastify.on {
+  opacity: 1;
+}
+* {
+  font-size: 24px;
+}
+body {
+  background-color: #3b3756;
+  color: #f1f272;
+}
+form {
+  position: relative;
+  margin-top:20px;
+}
+input {
+  border: none;
+  color: white;
+  background-color: #66608d;
+  padding:11px;
+}
+input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+input[readonly] {
+  background-color: #3b3756;
+  display: block;
+}
+
+input[readonly]:focus {
+  border: none;
+  outline: none;
+}
+
+button {
+  outline: none;
+  background-color: black;
+  border: 1px solid #f1f272;
+  color: #f1f272;
+  border-radius: 2px;
+  margin-right: 10px;
+  cursor: pointer;
+  padding:10px;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+table {
+  margin-top: 20px;
+
+  color: white;
+  border-collapse: collapse;
+  font-family: monospace;
+}
+table th {
+  font-size: 16px;
+  text-align: left;
+  padding: 10px;
+  background-color: #979748;
+  color: black;
+  border: 1px solid white;
+}
+table td {
+  font-size: 16px;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.load-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s forwards infinite;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-width: 5px;
+  border-color: #f1f272;
+  border-style: solid;
+  border-radius: 20%;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+.load-icon {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  background-color: black;
+  display: none;
+  z-index:1;
+}
+.load-icon.visible {
+  display: block;
+}
+
+.product-image {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#pages {
+  margin-top: 30px;
+}
+.page-button--active {
+  background: white;
+  color: black;
+}
+
+#limitForm{
+  margin-top:20px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api</title>
+    <script src="./toastify.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./helpers/fetch.js"></script>
+    <script src="./helpers/ui.js"></script>
+    <script src="./helpers/toast.js"></script>
+    <script src="./helpers/handlers.js"></script>
+
+    <script>
+      let booksTable;
+      let insertBookForm;
+      let loadIcon;
+
+      window.addEventListener('load', function () {
+        booksTable = document.querySelector('#booksTable');
+        insertBookForm = document.querySelector('#bookForm');
+        loadIcon = document.querySelector('#loadIcon');
+
+        loadBooks();
+
+        insertBookForm.addEventListener('submit', insertOrUpdateBook);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="loadIcon" class="load-icon"></div>
+    <table id="booksTable"></table>
+    <form name="bookForm" id="bookForm">
+      <input name="id" placeholder="id" value="" />
+      <input name="name" placeholder="name" value="" />
+      <input name="author" placeholder="author" value="" />
+      <input name="genres" placeholder="genres" value="" />
+      <button>Add/Edit Book</button>
+    </form>
+  </body>
+</html>
