@@ -24,4 +24,5 @@ export async function loadPhotos({ q, page }) {
     return;
   }
   drawPhotos({ photos, page });
+  return;
 }
